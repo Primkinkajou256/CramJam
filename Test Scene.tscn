@@ -1,12 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfy3eeijisotv"]
+[gd_scene load_steps=5 format=3 uid="uid://bfy3eeijisotv"]
 
 [ext_resource type="PackedScene" uid="uid://dpv60rf6eug8r" path="res://Objects/Rope.tscn" id="1_w4y0k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wju3r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m4k5b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pkr4"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="BallDetector" type="Node2D" parent="."]
+position = Vector2(568, 144)
+
+[node name="Area2D" type="Area2D" parent="BallDetector"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallDetector/Area2D"]
+shape = SubResource("RectangleShape2D_wju3r")
 
 [node name="Ball" type="RigidBody2D" parent="."]
 position = Vector2(594, 381)
