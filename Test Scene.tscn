@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfy3eeijisotv"]
+
+[ext_resource type="PackedScene" uid="uid://dpv60rf6eug8r" path="res://Objects/Rope.tscn" id="1_w4y0k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m4k5b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pkr4"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2(708, 188)
+mass = 5.08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+position = Vector2(-114, 193)
+shape = SubResource("CircleShape2D_m4k5b")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(587, 373)
+node_a = NodePath("../Ball")
+node_b = NodePath("../Rope/RopeSegment10")
+softness = 0.23
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="."]
+position = Vector2(589, 372)
+node_a = NodePath("../Ball")
+node_b = NodePath("../Rope2/RopeSegment10")
+softness = 0.23
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(531, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+shape = SubResource("RectangleShape2D_6pkr4")
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(452, 188)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+shape = SubResource("RectangleShape2D_6pkr4")
+
+[node name="Wall3" type="StaticBody2D" parent="."]
+position = Vector2(669, 187)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
+position = Vector2(-4, -22)
+shape = SubResource("RectangleShape2D_6pkr4")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(452, 198)
+node_a = NodePath("../Rope/RootSegment")
+node_b = NodePath("../Wall2")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2(665, 165)
+node_a = NodePath("../Rope2/RootSegment")
+node_b = NodePath("../Wall3")
+
+[node name="Rope" parent="." instance=ExtResource("1_w4y0k")]
+position = Vector2(452, 198)
+rotation = -0.655702
+
+[node name="Camera2D" type="Camera2D" parent="Rope"]
+
+[node name="Rope2" parent="." instance=ExtResource("1_w4y0k")]
+position = Vector2(665, 165)
+rotation = 0.321685
+
+[node name="RopeSegment10" parent="Rope2" index="20"]
+rotation = 0.339955
+
+[node name="Camera2D" type="Camera2D" parent="Rope2"]
+
+[editable path="Rope"]
+[editable path="Rope2"]
