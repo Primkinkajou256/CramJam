@@ -1,39 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfy3eeijisotv"]
+[gd_scene load_steps=6 format=3 uid="uid://bfy3eeijisotv"]
 
+[ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="1_4j748"]
 [ext_resource type="PackedScene" uid="uid://dpv60rf6eug8r" path="res://Objects/Rope.tscn" id="1_w4y0k"]
+[ext_resource type="PackedScene" uid="uid://cepvk266j6e1" path="res://Objects/Ball.tscn" id="2_sekyx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wju3r"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_m4k5b"]
+size = Vector2(549, 57)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pkr4"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="BallDetector" type="Node2D" parent="."]
-position = Vector2(568, 144)
+[node name="BallDetector" type="Area2D" parent="."]
+position = Vector2(592, 434)
+script = ExtResource("1_4j748")
 
-[node name="Area2D" type="Area2D" parent="BallDetector"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BallDetector/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallDetector"]
+position = Vector2(10.5, 18.5)
 shape = SubResource("RectangleShape2D_wju3r")
 
-[node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2(594, 381)
-mass = 5.08
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-shape = SubResource("CircleShape2D_m4k5b")
+[node name="Ball2" parent="." instance=ExtResource("2_sekyx")]
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 position = Vector2(587, 373)
-node_a = NodePath("../Ball")
+node_a = NodePath("../Ball2")
 node_b = NodePath("../Rope/RopeSegment10")
 softness = 0.23
 
 [node name="PinJoint2D4" type="PinJoint2D" parent="."]
 position = Vector2(589, 372)
-node_a = NodePath("../Ball")
+node_a = NodePath("../Ball2")
 node_b = NodePath("../Rope2/RopeSegment10")
 softness = 0.23
 
@@ -80,6 +76,8 @@ rotation = 0.321685
 rotation = 0.339955
 
 [node name="Camera2D" type="Camera2D" parent="Rope2"]
+
+[connection signal="body_entered" from="BallDetector" to="BallDetector" method="_on_body_entered"]
 
 [editable path="Rope"]
 [editable path="Rope2"]
