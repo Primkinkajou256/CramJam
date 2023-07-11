@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://byxe2fultbulp"]
+
+[ext_resource type="Script" path="res://Scripts/RopeCutter.gd" id="1_1rx1p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkhru"]
+
+[node name="RopeCutter2" type="Area2D"]
+script = ExtResource("1_1rx1p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vkhru")
