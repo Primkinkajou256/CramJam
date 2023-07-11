@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://ciomukj81ayrw"]
+[gd_scene load_steps=4 format=3 uid="uid://ciomukj81ayrw"]
 
+[ext_resource type="Script" path="res://Scripts/RopeSegment.gd" id="1_hsruk"]
 [ext_resource type="Texture2D" uid="uid://be0qb17o77akd" path="res://icon.svg" id="1_l1gbt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvwu6"]
 size = Vector2(6, 21)
 
 [node name="RopeSegment" type="RigidBody2D"]
+script = ExtResource("1_hsruk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 10)
