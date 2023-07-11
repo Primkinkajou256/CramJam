@@ -90,12 +90,11 @@ shape = SubResource("RectangleShape2D_vkhru")
 [node name="RopeCutter2" parent="." instance=ExtResource("5_exlo4")]
 position = Vector2(1163, 61)
 
-[node name="Rocket" parent="." instance=ExtResource("6_gsaep")]
-position = Vector2(251, 353)
-fuel = 5.0
-
 [node name="BoostPad" parent="." instance=ExtResource("7_r0lis")]
 position = Vector2(284, 243)
+
+[node name="RigidBody2D" parent="." instance=ExtResource("6_gsaep")]
+position = Vector2(264, 365)
 
 [connection signal="body_entered" from="BallDetector" to="BallDetector" method="_on_body_entered"]
 
