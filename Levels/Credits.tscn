@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bk42rlbv843sl"]
+
+[node name="Credits" type="Node2D"]
+
+[node name="TextEdit" type="Label" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Art Director: Nathan \"Beanos\" Hipple
+Creative Director: Wyatt \"Warren\" Forde
+Actual Creative Director: Josh Ford
+Assistant Assistant Director: Ralph \"Rizzard\" Robinson aka Triple R
+Sound Designer: Sammy \"Glizzy\" Kronquist"

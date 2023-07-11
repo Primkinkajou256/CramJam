@@ -41,5 +41,5 @@ func get_scene_path(num = 0):
 			return "res://Levels/Level 5.tscn"
 		
 		_:
-			return "res://Levels/Test Scene.tscn"
+			return "res://Levels/Credits.tscn"
 
