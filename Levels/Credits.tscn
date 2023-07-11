@@ -2,7 +2,7 @@
 
 [sub_resource type="Animation" id="Animation_tsyly"]
 resource_name = "Scroll"
-length = 30.0
+length = 50.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -10,10 +10,10 @@ tracks/0/path = NodePath("Credits Scroll:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 29.9),
+"times": PackedFloat32Array(0, 49.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(569, 653), Vector2(650, -500)]
+"values": [Vector2(569, 653), Vector2(650, -2000)]
 }
 
 [sub_resource type="Animation" id="Animation_p4cbo"]
@@ -48,52 +48,70 @@ libraries = {
 [node name="Credits Scroll" type="Node2D" parent="."]
 position = Vector2(569, 653)
 
+[node name="TextEdit8" type="Label" parent="Credits Scroll"]
+offset_left = -242.0
+offset_top = 42.0
+offset_right = 269.0
+offset_bottom = 198.0
+text = "And now, some out of context quotes in the form of credits:"
+
 [node name="TextEdit" type="Label" parent="Credits Scroll"]
 offset_left = -242.0
+offset_top = 196.0
 offset_right = 269.0
-offset_bottom = 156.0
+offset_bottom = 352.0
 text = "Creative Director: Wyatt \"Warren\" Forde
-"
+\"You can take my hips, but you will never take my gay\""
 
 [node name="TextEdit2" type="Label" parent="Credits Scroll"]
 offset_left = -242.0
-offset_top = 165.0
+offset_top = 361.0
 offset_right = 269.0
-offset_bottom = 321.0
+offset_bottom = 517.0
 text = "Art Director: Nathan \"Beanos\" Hipple
-\""
+\"Its the same game with a new paint of coat\"
+and
+\"Brogl Theory\"
+and
+\"I warned Shayne I was going to steal his stuff right after I stole his stuff\""
 
 [node name="TextEdit3" type="Label" parent="Credits Scroll"]
 offset_left = -242.0
-offset_top = 321.0
+offset_top = 562.0
 offset_right = 269.0
-offset_bottom = 477.0
-text = "Sound Designer: Sammy \"Glizzy\" Kronquist"
+offset_bottom = 718.0
+text = "Sound Designer: Sammy \"Glizzy\" Kronquist
+\"I want to poke my cat's butthole\""
 
 [node name="TextEdit4" type="Label" parent="Credits Scroll"]
 offset_left = -242.0
-offset_top = 477.0
+offset_top = 718.0
 offset_right = 269.0
-offset_bottom = 633.0
-text = "Assistant Artist: Sammy \"Glizzy\" Kronquistw"
+offset_bottom = 874.0
+text = "Assistant Artist: Sammy \"Glizzy\" Kronquist
+\"Meesa agor\""
 
 [node name="TextEdit5" type="Label" parent="Credits Scroll"]
 offset_left = -242.0
-offset_top = 633.0
+offset_top = 874.0
 offset_right = 269.0
-offset_bottom = 789.0
-text = "Actual Creative Director: Josh Ford"
+offset_bottom = 1030.0
+text = "Actual Creative Director: Josh Ford
+\"I am going to STEAL\"
+"
 
 [node name="TextEdit6" type="Label" parent="Credits Scroll"]
 offset_left = -242.0
-offset_top = 789.0
+offset_top = 1030.0
 offset_right = 269.0
-offset_bottom = 945.0
-text = "Assistant Assistant Director: Ralph \"Rizzard\" Robinson aka Triple R"
+offset_bottom = 1186.0
+text = "Assistant Assistant Director: Ralph \"Rizzard\" Robinson aka Triple R
+\"Evelynn's feet weren't that bad\""
 
 [node name="TextEdit7" type="Label" parent="Credits Scroll"]
 offset_left = -242.0
-offset_top = 945.0
+offset_top = 1186.0
 offset_right = 269.0
-offset_bottom = 1101.0
-text = "Witness: Shayne \"Dumbass\" LAST NAME"
+offset_bottom = 1342.0
+text = "Witness: Shayne \"Dumbass\" LAST NAME
+\"Where is my stuff :(\""

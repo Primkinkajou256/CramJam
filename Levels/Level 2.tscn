@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bv0642co0tgyu"]
+[gd_scene load_steps=13 format=3 uid="uid://bv0642co0tgyu"]
 
 [ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="1_g7wca"]
 [ext_resource type="PackedScene" uid="uid://cepvk266j6e1" path="res://Objects/Ball.tscn" id="2_nu5wx"]
@@ -6,7 +6,8 @@
 [ext_resource type="Script" path="res://Scripts/RopeCutter.gd" id="4_tvggx"]
 [ext_resource type="PackedScene" uid="uid://byxe2fultbulp" path="res://Objects/RopeCutter.tscn" id="5_50b65"]
 [ext_resource type="PackedScene" uid="uid://likroypx04ej" path="res://Objects/Rocket.tscn" id="6_6plt3"]
-[ext_resource type="Texture2D" uid="uid://c4xdnwrjc6od1" path="res://Art/BeanosBackground.png" id="7_fqm2f"]
+[ext_resource type="Texture2D" uid="uid://bf3ktylukb000" path="res://Art/hole.png" id="7_3apr1"]
+[ext_resource type="Texture2D" uid="uid://ro4y22pt20ie" path="res://Art/beanosbackground2.png" id="7_umorx"]
 [ext_resource type="Texture2D" uid="uid://drqv8vl5w0www" path="res://Art/Alien4.png" id="8_8alws"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wju3r"]
@@ -88,10 +89,15 @@ position = Vector2(1163, 61)
 [node name="Rocket" parent="." instance=ExtResource("6_6plt3")]
 position = Vector2(262, 327)
 
+[node name="Hole" type="Sprite2D" parent="."]
+position = Vector2(449, 471)
+scale = Vector2(0.305354, 0.305354)
+texture = ExtResource("7_3apr1")
+
 [node name="BeanosBackground" type="Sprite2D" parent="."]
 z_index = -4
 position = Vector2(451, 197)
-texture = ExtResource("7_fqm2f")
+texture = ExtResource("7_umorx")
 metadata/_edit_lock_ = true
 
 [node name="Alien4" type="Sprite2D" parent="."]
