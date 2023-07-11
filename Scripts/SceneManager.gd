@@ -11,6 +11,8 @@ func _ready():
 func _process(delta):
 	pass
 
+func reset_level():
+	load_scene(current_scene)
 
 func next_scene():
 	current_scene += 1

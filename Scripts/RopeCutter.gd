@@ -1,5 +1,6 @@
 extends Area2D
 
+@export var sound : AudioStreamPlayer2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,5 +12,6 @@ func _process(delta):
 	for body in get_overlapping_bodies():
 		if body is RopeSegment:
 			body.queue_free()
+			sound.play()
 
 

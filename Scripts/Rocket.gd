@@ -22,10 +22,11 @@ func _process(delta):
 	if Input.is_action_pressed("TurnRight"):
 		angular_velocity += rotation_speed
 	
-
-	
-	
 	fuel_bar.value = fuel
+
+	# Reset Level
+	if Input.is_action_just_pressed("ResetLevel"):
+		SceneManager.reset_level()
 
 
 

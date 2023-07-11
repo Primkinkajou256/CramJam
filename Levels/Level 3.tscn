@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://be5v8l8keen30"]
+
+[ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="1_mn3sd"]
+[ext_resource type="PackedScene" uid="uid://cepvk266j6e1" path="res://Objects/Ball.tscn" id="2_hmyb0"]
+[ext_resource type="PackedScene" uid="uid://dpv60rf6eug8r" path="res://Objects/Rope.tscn" id="3_bobeo"]
+[ext_resource type="Script" path="res://Scripts/RopeCutter.gd" id="4_rl2nq"]
+[ext_resource type="PackedScene" uid="uid://byxe2fultbulp" path="res://Objects/RopeCutter.tscn" id="5_7823a"]
+[ext_resource type="PackedScene" uid="uid://likroypx04ej" path="res://Objects/Rocket.tscn" id="6_es7np"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wju3r"]
+size = Vector2(549, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pkr4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkhru"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BallDetector" type="Area2D" parent="."]
+position = Vector2(452, 396)
+scale = Vector2(0.146078, 1.24463)
+script = ExtResource("1_mn3sd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallDetector"]
+position = Vector2(-1642.96, -282.012)
+shape = SubResource("RectangleShape2D_wju3r")
+
+[node name="Ball2" parent="." instance=ExtResource("2_hmyb0")]
+position = Vector2(591, 383)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(587, 373)
+node_a = NodePath("../Ball2")
+node_b = NodePath("../Rope/RopeSegment10")
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="."]
+position = Vector2(589, 372)
+node_a = NodePath("../Ball2")
+node_b = NodePath("../Rope2/RopeSegment10")
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(452, 188)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+shape = SubResource("RectangleShape2D_6pkr4")
+
+[node name="Wall3" type="StaticBody2D" parent="."]
+position = Vector2(669, 187)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
+position = Vector2(-4, -22)
+shape = SubResource("RectangleShape2D_6pkr4")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(452, 198)
+node_a = NodePath("../Rope/RootSegment")
+node_b = NodePath("../Wall2")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2(665, 165)
+node_a = NodePath("../Rope2/RootSegment")
+node_b = NodePath("../Wall3")
+
+[node name="Rope" parent="." instance=ExtResource("3_bobeo")]
+position = Vector2(452, 198)
+rotation = -0.655702
+
+[node name="Camera2D" type="Camera2D" parent="Rope"]
+
+[node name="Rope2" parent="." instance=ExtResource("3_bobeo")]
+position = Vector2(665, 165)
+rotation = 0.321685
+
+[node name="RopeSegment10" parent="Rope2" index="20"]
+rotation = 0.339955
+
+[node name="RopeCutter" type="Area2D" parent="."]
+position = Vector2(999, 55)
+script = ExtResource("4_rl2nq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RopeCutter"]
+shape = SubResource("RectangleShape2D_vkhru")
+
+[node name="RopeCutter2" parent="." instance=ExtResource("5_7823a")]
+position = Vector2(1163, 61)
+
+[node name="Rocket" parent="." instance=ExtResource("6_es7np")]
+position = Vector2(262, 327)
+
+[editable path="Rope"]
+[editable path="Rope2"]
