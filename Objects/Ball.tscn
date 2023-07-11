@@ -5,7 +5,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_m4k5b"]
 
 [node name="Ball" type="RigidBody2D"]
-mass = 5.08
 script = ExtResource("1_o4d06")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

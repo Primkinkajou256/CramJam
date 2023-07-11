@@ -1,5 +1,7 @@
 class_name RopeSegment extends RigidBody2D
 
+@export var next_segment : RigidBody2D
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
