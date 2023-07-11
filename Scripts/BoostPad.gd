@@ -12,4 +12,3 @@ func _process(delta):
 		if body is Rocket:
 			# "rotation" is boost pad's direction
 			body.linear_velocity += -Vector2(0, 1).rotated(body.rotation) * boost_speed
-			

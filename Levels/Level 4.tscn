@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctsk38wabxew"]
+[gd_scene load_steps=12 format=3 uid="uid://ctsk38wabxew"]
 
 [ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="1_kqces"]
 [ext_resource type="PackedScene" path="res://Objects/Ball.tscn" id="2_pk61r"]
@@ -7,9 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://byxe2fultbulp" path="res://Objects/RopeCutter.tscn" id="5_exlo4"]
 [ext_resource type="PackedScene" uid="uid://likroypx04ej" path="res://Objects/Rocket.tscn" id="6_gsaep"]
 [ext_resource type="PackedScene" uid="uid://qpk2080rd8dv" path="res://Objects/BoostPad.tscn" id="7_r0lis"]
+[ext_resource type="PackedScene" uid="uid://ciomukj81ayrw" path="res://Objects/RopeSegment.tscn" id="8_ymd5v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wju3r"]
-size = Vector2(549, 57)
+size = Vector2(64, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pkr4"]
 
@@ -18,28 +19,28 @@ size = Vector2(549, 57)
 [node name="Node2D" type="Node2D"]
 
 [node name="BallDetector" type="Area2D" parent="."]
-position = Vector2(592, 434)
+position = Vector2(687, 468)
 script = ExtResource("1_kqces")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BallDetector"]
-position = Vector2(10.5, 18.5)
 shape = SubResource("RectangleShape2D_wju3r")
 
 [node name="Ball2" parent="." instance=ExtResource("2_pk61r")]
-position = Vector2(591, 383)
+position = Vector2(673, 242)
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(587, 373)
+position = Vector2(669, 232)
 node_a = NodePath("../Ball2")
 node_b = NodePath("../Rope/RopeSegment10")
 
 [node name="PinJoint2D4" type="PinJoint2D" parent="."]
-position = Vector2(589, 372)
+position = Vector2(671, 231)
 node_a = NodePath("../Ball2")
-node_b = NodePath("../Rope2/RopeSegment10")
+node_b = NodePath("../Rope2/RopeSegment3")
 
 [node name="Wall" type="StaticBody2D" parent="."]
-position = Vector2(531, 96)
+position = Vector2(913, 70)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 shape = SubResource("RectangleShape2D_6pkr4")
@@ -64,21 +65,14 @@ node_b = NodePath("../Wall2")
 
 [node name="PinJoint2D3" type="PinJoint2D" parent="."]
 position = Vector2(665, 165)
-node_a = NodePath("../Rope2/RootSegment")
+node_a = NodePath("../Rope2/RopeSegment")
 node_b = NodePath("../Wall3")
 
 [node name="Rope" parent="." instance=ExtResource("3_b1wgp")]
 position = Vector2(452, 198)
-rotation = -0.655702
+rotation = -1.40241
 
 [node name="Camera2D" type="Camera2D" parent="Rope"]
-
-[node name="Rope2" parent="." instance=ExtResource("3_b1wgp")]
-position = Vector2(665, 165)
-rotation = 0.321685
-
-[node name="RopeSegment10" parent="Rope2" index="20"]
-rotation = 0.339955
 
 [node name="RopeCutter" type="Area2D" parent="."]
 position = Vector2(999, 55)
@@ -91,12 +85,35 @@ shape = SubResource("RectangleShape2D_vkhru")
 position = Vector2(1163, 61)
 
 [node name="BoostPad" parent="." instance=ExtResource("7_r0lis")]
-position = Vector2(284, 243)
+position = Vector2(852, 296)
 
 [node name="RigidBody2D" parent="." instance=ExtResource("6_gsaep")]
-position = Vector2(264, 365)
+position = Vector2(384, 74)
+rotation = 2.12777
+
+[node name="Rope2" type="Node2D" parent="."]
+position = Vector2(665, 165)
+rotation = -0.0972848
+
+[node name="RopeSegment" parent="Rope2" instance=ExtResource("8_ymd5v")]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Rope2"]
+position = Vector2(0, 21)
+node_a = NodePath("../RopeSegment")
+node_b = NodePath("../RopeSegment2")
+
+[node name="RopeSegment2" parent="Rope2" instance=ExtResource("8_ymd5v")]
+position = Vector2(0, 21)
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="Rope2"]
+position = Vector2(-0.00134277, 41.1947)
+scale = Vector2(1, 1)
+node_a = NodePath("../RopeSegment2")
+node_b = NodePath("../RopeSegment3")
+
+[node name="RopeSegment3" parent="Rope2" instance=ExtResource("8_ymd5v")]
+position = Vector2(0.564209, 42.4462)
 
 [connection signal="body_entered" from="BallDetector" to="BallDetector" method="_on_body_entered"]
 
 [editable path="Rope"]
-[editable path="Rope2"]
