@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://be5v8l8keen30"]
+[gd_scene load_steps=13 format=3 uid="uid://be5v8l8keen30"]
 
 [ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="1_mn3sd"]
 [ext_resource type="PackedScene" uid="uid://cepvk266j6e1" path="res://Objects/Ball.tscn" id="2_hmyb0"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://likroypx04ej" path="res://Objects/Rocket.tscn" id="6_es7np"]
 [ext_resource type="Texture2D" uid="uid://ro4y22pt20ie" path="res://Art/beanosbackground2.png" id="6_qt0kq"]
 [ext_resource type="Texture2D" uid="uid://obq5bl82pqt8" path="res://Art/Alien1.png" id="7_j0vsu"]
+[ext_resource type="PackedScene" uid="uid://bxd7styf5rih4" path="res://Objects/Spike.tscn" id="9_lrrhe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wju3r"]
 size = Vector2(549, 57)
@@ -137,6 +138,48 @@ rotation = 0.718781
 scale = Vector2(0.297532, 0.297532)
 texture = ExtResource("7_j0vsu")
 metadata/_edit_lock_ = true
+
+[node name="Spike" parent="." instance=ExtResource("9_lrrhe")]
+position = Vector2(724, 94)
+scale = Vector2(4.68559, 4.68559)
+
+[node name="Spike2" parent="." instance=ExtResource("9_lrrhe")]
+position = Vector2(622, 95)
+scale = Vector2(4.68559, 4.68559)
+
+[node name="Spike3" parent="." instance=ExtResource("9_lrrhe")]
+position = Vector2(520, 94)
+scale = Vector2(4.68559, 4.68559)
+
+[node name="Spike4" parent="." instance=ExtResource("9_lrrhe")]
+position = Vector2(418, 95)
+scale = Vector2(4.68559, 4.68559)
+
+[node name="Spike5" parent="." instance=ExtResource("9_lrrhe")]
+position = Vector2(316, 94)
+scale = Vector2(4.68559, 4.68559)
+
+[node name="Spike6" parent="." instance=ExtResource("9_lrrhe")]
+position = Vector2(214, 95)
+scale = Vector2(4.68559, 4.68559)
+
+[node name="Spike7" parent="." instance=ExtResource("9_lrrhe")]
+position = Vector2(-228, 396)
+scale = Vector2(4.68559, 73.6456)
+
+[node name="Spike8" parent="." instance=ExtResource("9_lrrhe")]
+position = Vector2(597, -238)
+scale = Vector2(86.2856, 4.68559)
+
+[node name="Spike9" parent="." instance=ExtResource("9_lrrhe")]
+position = Vector2(1473, 333)
+rotation = -1.5708
+scale = Vector2(86.2856, 4.68559)
+
+[node name="Spike10" parent="." instance=ExtResource("9_lrrhe")]
+position = Vector2(632, 869)
+rotation = -3.14159
+scale = Vector2(86.2856, 4.68559)
 
 [editable path="Wall+Rope/Rope"]
 [editable path="Wall+Rope2/Rope"]

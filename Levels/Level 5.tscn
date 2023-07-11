@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnjk6haxmivo5"]
+[gd_scene load_steps=13 format=3 uid="uid://bnjk6haxmivo5"]
 
 [ext_resource type="PackedScene" uid="uid://likroypx04ej" path="res://Objects/Rocket.tscn" id="1_lg77w"]
 [ext_resource type="Script" path="res://Objects/FollowCam.gd" id="1_uy0l7"]
 [ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="2_4aeru"]
+[ext_resource type="PackedScene" uid="uid://cepvk266j6e1" path="res://Objects/Ball.tscn" id="3_brxea"]
+[ext_resource type="PackedScene" uid="uid://dpv60rf6eug8r" path="res://Objects/Rope.tscn" id="4_4l2bt"]
 [ext_resource type="Texture2D" uid="uid://b74olmfbp87hl" path="res://Art/WyattAlien.png" id="6_0lwf8"]
 [ext_resource type="PackedScene" uid="uid://bxd7styf5rih4" path="res://Objects/Spike.tscn" id="6_q610y"]
 [ext_resource type="Texture2D" uid="uid://bf3ktylukb000" path="res://Art/hole.png" id="6_xo30x"]
@@ -45,7 +47,7 @@ position = Vector2(273, 459)
 fuel = 3.0
 
 [node name="BallDetector" type="Area2D" parent="."]
-position = Vector2(2099, 631)
+position = Vector2(1726, 630)
 scale = Vector2(0.146078, 1.24463)
 script = ExtResource("2_4aeru")
 
@@ -59,10 +61,15 @@ position = Vector2(-198.524, -36.1553)
 shape = SubResource("RectangleShape2D_wju3r")
 
 [node name="Wall3" type="StaticBody2D" parent="."]
-position = Vector2(474, 592)
+position = Vector2(1698, 272)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
 shape = SubResource("RectangleShape2D_6pkr4")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Wall3"]
+position = Vector2(0, 10)
+node_a = NodePath("..")
+node_b = NodePath("../../Rope/RootSegment")
 
 [node name="Spikes" type="Node2D" parent="."]
 position = Vector2(640, 580)
@@ -170,3 +177,16 @@ scale = Vector2(4.84988, 4.84988)
 [node name="Spike4" parent="." instance=ExtResource("6_q610y")]
 position = Vector2(1288, 379)
 scale = Vector2(4.84988, 4.84988)
+
+[node name="Rope" parent="." instance=ExtResource("4_4l2bt")]
+position = Vector2(1698, 282)
+
+[node name="Ball" parent="." instance=ExtResource("3_brxea")]
+position = Vector2(1698, 514)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Ball"]
+position = Vector2(0, -11)
+node_a = NodePath("..")
+node_b = NodePath("../../Rope/RopeSegment10")
+
+[editable path="Rope"]
