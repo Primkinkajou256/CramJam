@@ -8,32 +8,33 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vd7lq"]
 size = Vector2(28, 44)
 
-[node name="Rocket" type="CharacterBody2D" node_paths=PackedStringArray("fuel_bar")]
-rotation = 3.14159
+[node name="RigidBody2D" type="RigidBody2D" node_paths=PackedStringArray("fuel_bar")]
+gravity_scale = 0.0
 script = ExtResource("1_4o8py")
 fuel_bar = NodePath("FuelBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.8147e-06, -5.50091)
+position = Vector2(1.77605e-05, 5.50091)
+rotation = 3.14159
 shape = SubResource("RectangleShape2D_vd7lq")
 
 [node name="RopeCutter2" parent="." instance=ExtResource("2_ayvv8")]
-position = Vector2(-3.8147e-06, -5.50091)
+position = Vector2(1.77605e-05, 5.50091)
+rotation = 3.14159
 
 [node name="CollisionShape2D" parent="RopeCutter2" index="0"]
 position = Vector2(0, 29)
 
 [node name="RocketCharacter" type="Sprite2D" parent="."]
-position = Vector2(-3.8147e-06, 9.49908)
-rotation = 3.14159
+position = Vector2(-2.02672e-05, -9.49908)
 scale = Vector2(0.0935202, 0.0935202)
 texture = ExtResource("3_hnxba")
 
 [node name="FuelBar" parent="." instance=ExtResource("4_alv60")]
-offset_left = 8.0
-offset_top = -20.0
-offset_right = 40.0
-offset_bottom = 236.0
+offset_left = -7.99995
+offset_top = 20.0
+offset_right = 24.0
+offset_bottom = 276.0
 scale = Vector2(0.0824831, 0.145884)
 fill_mode = 2
 

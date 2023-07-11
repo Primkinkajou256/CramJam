@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends RigidBody2D
 
 @export var accel = 1.0
 @export var rotation_speed = 5.0
@@ -14,14 +14,15 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_pressed("Forward") and fuel > 0:
-		velocity += Vector2(0, 1).rotated(rotation) * accel
+		linear_velocity += -Vector2(0, 1).rotated(rotation) * accel
 		fuel -= delta
+	angular_velocity = 0
 	if Input.is_action_pressed("TurnLeft"):
-		rotation -= rotation_speed * delta
+		angular_velocity -= rotation_speed
 	if Input.is_action_pressed("TurnRight"):
-		rotation += rotation_speed * delta
+		angular_velocity += rotation_speed
 	
-	move_and_slide()
+
 	
 	
 	fuel_bar.value = fuel
