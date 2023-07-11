@@ -109,4 +109,11 @@ position = Vector2(477, 731)
 rotation = -3.14159
 scale = Vector2(86.2856, 4.68559)
 
+[node name="Label" type="Label" parent="."]
+offset_left = 198.0
+offset_top = 200.0
+offset_right = 333.0
+offset_bottom = 226.0
+text = "A and W to turn!!!"
+
 [editable path="Rope"]

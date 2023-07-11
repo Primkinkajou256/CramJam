@@ -1,8 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://bk42rlbv843sl"]
+[gd_scene load_steps=18 format=3 uid="uid://bk42rlbv843sl"]
 
 [ext_resource type="Texture2D" uid="uid://dtb5t4c7lrcgb" path="res://Art/REAL ART.png" id="1_0ry1k"]
 [ext_resource type="Script" path="res://Scripts/Credits.gd" id="1_tk8q3"]
 [ext_resource type="AudioStream" uid="uid://dadi54dgxo5xo" path="res://Sounds/CBAT Beanos.wav" id="2_fkn7d"]
+[ext_resource type="Texture2D" uid="uid://dnd7sctxrhs8k" path="res://Art/HeadMan.png" id="4_cn8pu"]
+[ext_resource type="Texture2D" uid="uid://cjd77ch5wdfci" path="res://Art/DeathSpikes.png" id="5_06dqk"]
+[ext_resource type="Texture2D" uid="uid://cfeov1imtx2dm" path="res://Art/Crown.png" id="6_hvc2g"]
+[ext_resource type="Texture2D" uid="uid://del5so8qybvkq" path="res://Art/Explode.png" id="7_or0d2"]
+[ext_resource type="Texture2D" uid="uid://drqv8vl5w0www" path="res://Art/Alien4.png" id="8_fwmvf"]
+[ext_resource type="Texture2D" uid="uid://b8talb8bmgsra" path="res://Art/Fuel.png" id="9_rnysm"]
+[ext_resource type="Texture2D" uid="uid://bl1ghd771ud2p" path="res://Art/SadRope.png" id="10_al054"]
+[ext_resource type="Texture2D" uid="uid://bf3ktylukb000" path="res://Art/hole.png" id="11_2alko"]
+[ext_resource type="Texture2D" uid="uid://q8awe0uqsc1p" path="res://Art/Platform.png" id="12_yvuf0"]
+[ext_resource type="Texture2D" uid="uid://b74olmfbp87hl" path="res://Art/WyattAlien.png" id="13_4wkwl"]
+[ext_resource type="Texture2D" uid="uid://xyjxspw1pb3m" path="res://Art/RocketCharacter.png" id="14_gljw7"]
 
 [sub_resource type="Animation" id="Animation_p4cbo"]
 length = 0.001
@@ -107,17 +118,17 @@ text = "Actual Creative Director: Josh Ford
 
 [node name="TextEdit6" type="Label" parent="Credits Scroll"]
 offset_left = -242.0
-offset_top = 1030.0
+offset_top = 987.0
 offset_right = 269.0
-offset_bottom = 1186.0
+offset_bottom = 1143.0
 text = "Assistant Assistant Director: Ralph \"Rizzard\" Robinson aka Triple R
 \"Evelynn's feet weren't that bad\""
 
 [node name="TextEdit7" type="Label" parent="Credits Scroll"]
 offset_left = -242.0
-offset_top = 1186.0
+offset_top = 1225.0
 offset_right = 269.0
-offset_bottom = 1342.0
+offset_bottom = 1381.0
 text = "Witness: Shayne \"Dumbass\" LAST NAME
 \"Where is my stuff :(\""
 
@@ -159,11 +170,125 @@ offset_top = 1573.0
 offset_right = 269.0
 offset_bottom = 1729.0
 text = "Peter \"Sea Slut\" Bosslemann: Game Tester
-\"I'm a sea slut\""
+\"I'm a sea slut\"
+Disclaimer: Only tested the game after its release"
+
+[node name="TextEdit17" type="Label" parent="Credits Scroll"]
+offset_left = -151.0
+offset_top = 1859.0
+offset_right = 360.0
+offset_bottom = 2015.0
+text = "Hope you had fun!"
+
+[node name="TextEdit14" type="Label" parent="Credits Scroll"]
+offset_left = -242.0
+offset_top = 1081.0
+offset_right = 269.0
+offset_bottom = 1237.0
+text = "Mechanics Design and Programming: 
+All of the code fell from the sky and into the
+game engine ready to go (Josh Ford)
+\"When the imposter is sus\""
+
+[node name="TextEdit15" type="Label" parent="Credits Scroll"]
+offset_left = 168.641
+offset_top = 757.783
+offset_right = 679.641
+offset_bottom = 913.783
+rotation = 0.557345
+scale = Vector2(0.854467, 0.854467)
+text = "(The other unused asset)"
+
+[node name="TextEdit16" type="Label" parent="Credits Scroll"]
+offset_left = -467.0
+offset_top = 499.099
+offset_right = 44.0
+offset_bottom = 655.099
+rotation = -0.281033
+scale = Vector2(0.854467, 0.854467)
+text = "(One of two unused
+assets in the game)"
+
+[node name="TextEdit18" type="Label" parent="Credits Scroll"]
+offset_left = -249.0
+offset_top = -225.0
+offset_right = 262.0
+offset_bottom = -69.0
+scale = Vector2(0.854467, 0.854467)
+text = "He has both a new hat,
+and a new friend"
+horizontal_alignment = 1
 
 [node name="RealArt" type="Sprite2D" parent="Credits Scroll"]
 position = Vector2(-48, 2349)
 texture = ExtResource("1_0ry1k")
+
+[node name="HeadMan" type="Sprite2D" parent="Credits Scroll"]
+position = Vector2(241, 234)
+texture = ExtResource("4_cn8pu")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Credits Scroll/HeadMan"]
+unique_name_in_owner = true
+position = Vector2(5, 27)
+direction = Vector2(0, 1)
+spread = 30.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.29
+initial_velocity_max = 57.14
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color = Color(0.415686, 0, 0, 1)
+
+[node name="DeathSpikes" type="Sprite2D" parent="Credits Scroll"]
+position = Vector2(236, 1282)
+scale = Vector2(0.363677, 0.363677)
+texture = ExtResource("5_06dqk")
+
+[node name="Crown" type="Sprite2D" parent="Credits Scroll"]
+position = Vector2(-11, 861)
+scale = Vector2(0.454193, 0.454193)
+texture = ExtResource("6_hvc2g")
+
+[node name="Explode" type="Sprite2D" parent="Credits Scroll"]
+position = Vector2(-365, 1130)
+texture = ExtResource("7_or0d2")
+
+[node name="Alien4" type="Sprite2D" parent="Credits Scroll"]
+position = Vector2(-398, 147)
+rotation = -0.554651
+scale = Vector2(0.250677, 0.250677)
+texture = ExtResource("8_fwmvf")
+
+[node name="Fuel" type="Sprite2D" parent="Credits Scroll"]
+position = Vector2(295.641, 753.783)
+rotation = 0.517619
+scale = Vector2(0.462462, 0.462462)
+texture = ExtResource("9_rnysm")
+
+[node name="SadRope" type="Sprite2D" parent="Credits Scroll"]
+position = Vector2(-377, 573.099)
+rotation = -0.273985
+scale = Vector2(1, 1)
+texture = ExtResource("10_al054")
+
+[node name="Hole" type="Sprite2D" parent="Credits Scroll"]
+position = Vector2(-405, 1535)
+scale = Vector2(0.474868, 0.474868)
+texture = ExtResource("11_2alko")
+
+[node name="Platform" type="Sprite2D" parent="Credits Scroll"]
+position = Vector2(-75, 2467)
+scale = Vector2(0.392258, 3.21839)
+texture = ExtResource("12_yvuf0")
+
+[node name="WyattAlien" type="Sprite2D" parent="Credits Scroll"]
+position = Vector2(-26, -311)
+texture = ExtResource("13_4wkwl")
+
+[node name="RocketCharacter" type="Sprite2D" parent="Credits Scroll"]
+position = Vector2(-27, -468)
+scale = Vector2(0.144582, 0.144582)
+texture = ExtResource("14_gljw7")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(552, 335)
