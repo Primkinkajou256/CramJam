@@ -1,0 +1,126 @@
+[gd_scene load_steps=9 format=3 uid="uid://gr7fvkkokq8d"]
+
+[ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="1_2ks1w"]
+[ext_resource type="PackedScene" path="res://Objects/Ball.tscn" id="2_2dlgf"]
+[ext_resource type="PackedScene" uid="uid://dpv60rf6eug8r" path="res://Objects/Rope.tscn" id="3_5a0o4"]
+[ext_resource type="Script" path="res://Scripts/RopeCutter.gd" id="4_aaf65"]
+[ext_resource type="PackedScene" uid="uid://likroypx04ej" path="res://Objects/Rocket.tscn" id="6_j8cp2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wju3r"]
+size = Vector2(549, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pkr4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkhru"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BallDetector" type="Area2D" parent="."]
+position = Vector2(629, 293)
+script = ExtResource("1_2ks1w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallDetector"]
+position = Vector2(534, 86)
+shape = SubResource("RectangleShape2D_wju3r")
+
+[node name="Ball2" parent="." instance=ExtResource("2_2dlgf")]
+position = Vector2(1163, 279)
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="."]
+position = Vector2(1163, 279)
+node_a = NodePath("../Ball2")
+node_b = NodePath("../Rope2/RopeSegment10")
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(1163, 61)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+shape = SubResource("RectangleShape2D_6pkr4")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="Wall"]
+node_a = NodePath("..")
+node_b = NodePath("../../Rope2/RootSegment")
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(452, 188)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+shape = SubResource("RectangleShape2D_6pkr4")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="Wall2"]
+node_a = NodePath("..")
+node_b = NodePath("../../Rope/RootSegment")
+
+[node name="RopeCutter" type="Area2D" parent="."]
+position = Vector2(999, 55)
+script = ExtResource("4_aaf65")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RopeCutter"]
+shape = SubResource("RectangleShape2D_vkhru")
+
+[node name="Rocket" parent="." instance=ExtResource("6_j8cp2")]
+position = Vector2(425, 409)
+rotation = -1.63655
+fuel = 5.0
+
+[node name="Rope" parent="." instance=ExtResource("3_5a0o4")]
+modulate = Color(1, 1, 1, 0.278431)
+position = Vector2(452, 188)
+
+[node name="RootSegment" parent="Rope" index="0"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="RopeSegment" parent="Rope" index="2"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="RopeSegment2" parent="Rope" index="4"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="RopeSegment3" parent="Rope" index="6"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="RopeSegment4" parent="Rope" index="8"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="RopeSegment5" parent="Rope" index="10"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="RopeSegment6" parent="Rope" index="12"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="RopeSegment7" parent="Rope" index="14"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="RopeSegment8" parent="Rope" index="16"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="RopeSegment9" parent="Rope" index="18"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="RopeSegment10" parent="Rope" index="20"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="PinJoint2D11" type="PinJoint2D" parent="Rope"]
+position = Vector2(13, 226)
+node_a = NodePath("../RopeSegment10")
+node_b = NodePath("../../Rocket")
+
+[node name="Rope2" parent="." instance=ExtResource("3_5a0o4")]
+position = Vector2(1163, 62)
+rotation = -6.28319
+
+[connection signal="body_entered" from="BallDetector" to="BallDetector" method="_on_body_entered"]
+
+[editable path="Rope"]
+[editable path="Rope2"]
