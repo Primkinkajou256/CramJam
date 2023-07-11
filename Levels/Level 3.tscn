@@ -29,12 +29,12 @@ position = Vector2(-198.524, -36.1553)
 shape = SubResource("RectangleShape2D_wju3r")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(742, 410)
+position = Vector2(727, 408)
 node_a = NodePath("../Ball2")
 node_b = NodePath("../Wall+Rope/Rope/RopeSegment10")
 
 [node name="Ball2" parent="." instance=ExtResource("2_hmyb0")]
-position = Vector2(742, 421)
+position = Vector2(727, 419)
 
 [node name="Wall3" type="StaticBody2D" parent="."]
 position = Vector2(474, 592)
@@ -43,7 +43,7 @@ position = Vector2(474, 592)
 shape = SubResource("RectangleShape2D_6pkr4")
 
 [node name="Wall+Rope" type="Node2D" parent="."]
-position = Vector2(737, 179)
+position = Vector2(722, 177)
 
 [node name="Wall2" type="StaticBody2D" parent="Wall+Rope"]
 

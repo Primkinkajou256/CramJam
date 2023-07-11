@@ -1,5 +1,6 @@
 class_name RopeSegment extends RigidBody2D
 
+# Next Segment must contain the next segment in the string if you want it to be deleted
 @export var next_segment : RigidBody2D
 
 
