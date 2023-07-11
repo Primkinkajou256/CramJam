@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bv0642co0tgyu"]
+[gd_scene load_steps=15 format=3 uid="uid://bv0642co0tgyu"]
 
 [ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="1_g7wca"]
 [ext_resource type="PackedScene" uid="uid://cepvk266j6e1" path="res://Objects/Ball.tscn" id="2_nu5wx"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bf3ktylukb000" path="res://Art/hole.png" id="7_3apr1"]
 [ext_resource type="Texture2D" uid="uid://ro4y22pt20ie" path="res://Art/beanosbackground2.png" id="7_umorx"]
 [ext_resource type="Texture2D" uid="uid://drqv8vl5w0www" path="res://Art/Alien4.png" id="8_8alws"]
+[ext_resource type="PackedScene" uid="uid://bxd7styf5rih4" path="res://Objects/Spike.tscn" id="10_3yrpk"]
+[ext_resource type="Script" path="res://Scripts/R To Restart.gd" id="11_poqnt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wju3r"]
 size = Vector2(549, 57)
@@ -107,6 +109,36 @@ rotation = -2.30378
 scale = Vector2(0.231663, 0.231663)
 texture = ExtResource("8_8alws")
 metadata/_edit_lock_ = true
+
+[node name="Spike7" parent="." instance=ExtResource("10_3yrpk")]
+position = Vector2(-381, 290)
+scale = Vector2(4.68559, 73.6456)
+
+[node name="Spike8" parent="." instance=ExtResource("10_3yrpk")]
+position = Vector2(444, -344)
+scale = Vector2(86.2856, 4.68559)
+
+[node name="Spike9" parent="." instance=ExtResource("10_3yrpk")]
+position = Vector2(1320, 227)
+rotation = -1.5708
+scale = Vector2(86.2856, 4.68559)
+
+[node name="Spike10" parent="." instance=ExtResource("10_3yrpk")]
+position = Vector2(479, 763)
+rotation = -3.14159
+scale = Vector2(86.2856, 4.68559)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 607.0
+offset_top = 21.0
+offset_right = 725.0
+offset_bottom = 47.0
+scale = Vector2(1.74884, 1.74884)
+text = "R to Restart :)"
+script = ExtResource("11_poqnt")
+
+[connection signal="tree_exiting" from="Rope/RopeSegment10" to="Label" method="_on_rope_segment_10_tree_exiting"]
 
 [editable path="Rope"]
 [editable path="Rope2"]

@@ -1,0 +1,303 @@
+[gd_scene load_steps=31 format=3 uid="uid://1pt7y5ypbh64"]
+
+[ext_resource type="Script" path="res://Scripts/TitleScreen.gd" id="1_casfc"]
+[ext_resource type="Texture2D" uid="uid://ro4y22pt20ie" path="res://Art/beanosbackground2.png" id="1_tsk45"]
+[ext_resource type="Texture2D" uid="uid://drqv8vl5w0www" path="res://Art/Alien4.png" id="2_s7ke3"]
+[ext_resource type="Texture2D" uid="uid://b1ned76appi56" path="res://Art/Alien3.png" id="3_eg701"]
+[ext_resource type="Texture2D" uid="uid://dowt0qh1cje5f" path="res://Art/Alien2.png" id="4_7an1f"]
+[ext_resource type="Texture2D" uid="uid://obq5bl82pqt8" path="res://Art/Alien1.png" id="5_ipvn3"]
+[ext_resource type="Texture2D" uid="uid://b74olmfbp87hl" path="res://Art/WyattAlien.png" id="6_4qqi6"]
+[ext_resource type="Texture2D" uid="uid://cfeov1imtx2dm" path="res://Art/Crown.png" id="7_nppsw"]
+[ext_resource type="Texture2D" uid="uid://xyjxspw1pb3m" path="res://Art/RocketCharacter.png" id="9_0sxn3"]
+[ext_resource type="PackedScene" uid="uid://byxe2fultbulp" path="res://Objects/RopeCutter.tscn" id="10_4wdax"]
+[ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="11_3l6t6"]
+[ext_resource type="AudioStream" uid="uid://5s8fgvqq7ytv" path="res://Sounds/Rope1.mp3" id="11_7tg5s"]
+[ext_resource type="PackedScene" uid="uid://cepvk266j6e1" path="res://Objects/Ball.tscn" id="12_hnq1f"]
+[ext_resource type="AudioStream" uid="uid://d0s64dvr3k71j" path="res://Sounds/Rope2.mp3" id="12_spxcy"]
+[ext_resource type="PackedScene" uid="uid://dpv60rf6eug8r" path="res://Objects/Rope.tscn" id="13_u843m"]
+[ext_resource type="AudioStream" uid="uid://ngnmg7jnnx65" path="res://Sounds/Rope3.mp3" id="13_yillt"]
+[ext_resource type="Texture2D" uid="uid://bf3ktylukb000" path="res://Art/hole.png" id="14_3d2sn"]
+[ext_resource type="AudioStream" uid="uid://c7fx0ferea1ul" path="res://Sounds/Rope4.mp3" id="14_sitog"]
+[ext_resource type="AudioStream" uid="uid://6f71ej1jeevu" path="res://Sounds/Rope5.mp3" id="15_otfyx"]
+[ext_resource type="AudioStream" uid="uid://bkhovn05o18ih" path="res://Sounds/Rope6.mp3" id="16_fsfcm"]
+[ext_resource type="AudioStream" uid="uid://wtnmei4tn5b1" path="res://Sounds/Rope7.mp3" id="17_hu0hp"]
+
+[sub_resource type="Animation" id="Animation_002h2"]
+resource_name = "Start"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_game"
+}]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../RocketCharacter:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(189, -0.25, 0, 0.25, 0, 468, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../RocketCharacter:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(118, -0.25, 0, 0.25, 0, 118, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_y0xyt"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../RocketCharacter:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(175, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../RocketCharacter:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(119, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_65w7b"]
+_data = {
+"RESET": SubResource("Animation_y0xyt"),
+"Start": SubResource("Animation_002h2")
+}
+
+[sub_resource type="Animation" id="Animation_xxaku"]
+resource_name = "Loop"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Alien1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1214, 65), Vector2(-105, 70)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Alien1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 29.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.414523, 17.4533]
+}
+
+[sub_resource type="Animation" id="Animation_nquh4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Alien1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1214, 65)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Alien1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.414523]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pi6e1"]
+_data = {
+"Loop": SubResource("Animation_xxaku"),
+"RESET": SubResource("Animation_nquh4")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1fryg"]
+streams_count = 7
+stream_0/stream = ExtResource("11_7tg5s")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("12_spxcy")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("13_yillt")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("14_sitog")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("15_otfyx")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("16_fsfcm")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("17_hu0hp")
+stream_6/weight = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pimgg"]
+size = Vector2(549, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0t44e"]
+
+[node name="Title Screen" type="Node2D"]
+script = ExtResource("1_casfc")
+
+[node name="Beanosbackground2" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(578, 327)
+texture = ExtResource("1_tsk45")
+metadata/_edit_lock_ = true
+
+[node name="Alien4" type="Sprite2D" parent="."]
+position = Vector2(678, 566)
+rotation = -2.43585
+scale = Vector2(0.265945, 0.265945)
+texture = ExtResource("2_s7ke3")
+metadata/_edit_lock_ = true
+
+[node name="Alien3" type="Sprite2D" parent="."]
+position = Vector2(1080, 585)
+rotation = 2.31496
+scale = Vector2(0.347774, 0.347774)
+texture = ExtResource("3_eg701")
+metadata/_edit_lock_ = true
+
+[node name="Alien2" type="Sprite2D" parent="."]
+position = Vector2(629, 254)
+rotation = -1.33221
+scale = Vector2(0.495664, 0.495664)
+texture = ExtResource("4_7an1f")
+metadata/_edit_lock_ = true
+
+[node name="Alien1" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1214, 65)
+rotation = -0.414523
+scale = Vector2(0.129997, 0.129997)
+texture = ExtResource("5_ipvn3")
+metadata/_edit_lock_ = true
+
+[node name="Start Game Text" type="Label" parent="."]
+offset_left = 123.0
+offset_top = 358.0
+offset_right = 275.0
+offset_bottom = 384.0
+scale = Vector2(2.39932, 2.39932)
+text = "Press W To Start!!!"
+
+[node name="Start Game Anim" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("../Title Loop Anim")
+libraries = {
+"": SubResource("AnimationLibrary_65w7b")
+}
+
+[node name="Title Loop Anim" type="AnimationPlayer" parent="."]
+autoplay = "Loop"
+libraries = {
+"": SubResource("AnimationLibrary_pi6e1")
+}
+
+[node name="WyattAlien" type="Sprite2D" parent="."]
+position = Vector2(921, 122.933)
+texture = ExtResource("6_4qqi6")
+metadata/_edit_lock_ = true
+
+[node name="Crown" type="Sprite2D" parent="."]
+position = Vector2(919, 21.9326)
+scale = Vector2(0.378894, 0.378894)
+texture = ExtResource("7_nppsw")
+metadata/_edit_lock_ = true
+
+[node name="RocketCharacter" type="Sprite2D" parent="."]
+position = Vector2(175, 119)
+rotation = 1.5708
+scale = Vector2(0.147971, 0.147971)
+texture = ExtResource("9_0sxn3")
+
+[node name="RopeCutter2" parent="RocketCharacter" node_paths=PackedStringArray("sound") instance=ExtResource("10_4wdax")]
+position = Vector2(6.75806, -290.598)
+sound = NodePath("AudioStreamPlayer2D")
+
+[node name="CollisionShape2D" parent="RocketCharacter/RopeCutter2" index="0"]
+position = Vector2(-13.5166, 108.387)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RocketCharacter/RopeCutter2"]
+stream = SubResource("AudioStreamRandomizer_1fryg")
+
+[node name="BallDetector" type="Area2D" parent="."]
+position = Vector2(363, 485)
+scale = Vector2(0.146078, 1.24463)
+script = ExtResource("11_3l6t6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallDetector"]
+position = Vector2(-27.3826, 18.4794)
+shape = SubResource("RectangleShape2D_pimgg")
+
+[node name="Ball2" parent="." instance=ExtResource("12_hnq1f")]
+position = Vector2(362, 312)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(361, 301)
+node_a = NodePath("../Ball2")
+node_b = NodePath("../Rope/RopeSegment10")
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(340, 71)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+shape = SubResource("RectangleShape2D_0t44e")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(340, 81)
+node_a = NodePath("../Rope/RootSegment")
+node_b = NodePath("../Wall2")
+
+[node name="Rope" parent="." instance=ExtResource("13_u843m")]
+position = Vector2(340, 81)
+rotation = -0.0932868
+
+[node name="Hole" type="Sprite2D" parent="."]
+position = Vector2(355, 522)
+scale = Vector2(0.305354, 0.305354)
+texture = ExtResource("14_3d2sn")
+
+[editable path="RocketCharacter/RopeCutter2"]
+[editable path="Rope"]
