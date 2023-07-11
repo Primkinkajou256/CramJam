@@ -1,0 +1,172 @@
+[gd_scene load_steps=11 format=3 uid="uid://bnjk6haxmivo5"]
+
+[ext_resource type="PackedScene" uid="uid://likroypx04ej" path="res://Objects/Rocket.tscn" id="1_lg77w"]
+[ext_resource type="Script" path="res://Objects/FollowCam.gd" id="1_uy0l7"]
+[ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="2_4aeru"]
+[ext_resource type="Texture2D" uid="uid://b74olmfbp87hl" path="res://Art/WyattAlien.png" id="6_0lwf8"]
+[ext_resource type="PackedScene" uid="uid://bxd7styf5rih4" path="res://Objects/Spike.tscn" id="6_q610y"]
+[ext_resource type="Texture2D" uid="uid://bf3ktylukb000" path="res://Art/hole.png" id="6_xo30x"]
+[ext_resource type="Texture2D" uid="uid://ro4y22pt20ie" path="res://Art/beanosbackground2.png" id="7_0nrmd"]
+[ext_resource type="Texture2D" uid="uid://cfeov1imtx2dm" path="res://Art/Crown.png" id="7_tpbx6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wju3r"]
+size = Vector2(549, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pkr4"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(582, 329)
+scale = Vector2(4.84988, 4.84988)
+script = ExtResource("1_uy0l7")
+target = NodePath("../Rocket")
+UD = false
+
+[node name="BeanosBackground" type="Sprite2D" parent="Camera2D"]
+z_index = -1
+position = Vector2(-0.206192, -0.824768)
+scale = Vector2(0.206191, 0.206191)
+texture = ExtResource("7_0nrmd")
+metadata/_edit_lock_ = true
+
+[node name="WyattAlien" type="Sprite2D" parent="Camera2D"]
+position = Vector2(67.8367, -42.4753)
+scale = Vector2(0.206191, 0.206191)
+texture = ExtResource("6_0lwf8")
+
+[node name="Crown" type="Sprite2D" parent="Camera2D/WyattAlien"]
+position = Vector2(-2.99994, -102)
+scale = Vector2(0.354597, 0.354597)
+texture = ExtResource("7_tpbx6")
+
+[node name="Rocket" parent="." instance=ExtResource("1_lg77w")]
+position = Vector2(273, 459)
+fuel = 3.0
+
+[node name="BallDetector" type="Area2D" parent="."]
+position = Vector2(2099, 631)
+scale = Vector2(0.146078, 1.24463)
+script = ExtResource("2_4aeru")
+
+[node name="Hole" type="Sprite2D" parent="BallDetector"]
+position = Vector2(-184.833, -24.907)
+scale = Vector2(2.09035, 0.245337)
+texture = ExtResource("6_xo30x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallDetector"]
+position = Vector2(-198.524, -36.1553)
+shape = SubResource("RectangleShape2D_wju3r")
+
+[node name="Wall3" type="StaticBody2D" parent="."]
+position = Vector2(474, 592)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
+shape = SubResource("RectangleShape2D_6pkr4")
+
+[node name="Spikes" type="Node2D" parent="."]
+position = Vector2(640, 580)
+scale = Vector2(6.0044, 6.0044)
+
+[node name="Spike" parent="Spikes" instance=ExtResource("6_q610y")]
+position = Vector2(-64.7858, 0)
+
+[node name="Spike2" parent="Spikes" instance=ExtResource("6_q610y")]
+position = Vector2(-43.3016, 0)
+
+[node name="Spike3" parent="Spikes" instance=ExtResource("6_q610y")]
+position = Vector2(-21.9839, 0)
+
+[node name="Spike4" parent="Spikes" instance=ExtResource("6_q610y")]
+
+[node name="Spike5" parent="Spikes" instance=ExtResource("6_q610y")]
+position = Vector2(21.6508, 0)
+
+[node name="Spikes2" type="Node2D" parent="."]
+position = Vector2(114, 582)
+rotation = 1.5708
+scale = Vector2(6.0044, 6.0044)
+
+[node name="Spike" parent="Spikes2" instance=ExtResource("6_q610y")]
+position = Vector2(-64.7858, 0)
+
+[node name="Spike2" parent="Spikes2" instance=ExtResource("6_q610y")]
+position = Vector2(-43.3016, 0)
+
+[node name="Spike3" parent="Spikes2" instance=ExtResource("6_q610y")]
+position = Vector2(-21.9839, 0)
+
+[node name="Spike4" parent="Spikes2" instance=ExtResource("6_q610y")]
+
+[node name="Spike5" parent="Spikes2" instance=ExtResource("6_q610y")]
+position = Vector2(21.6508, 0)
+
+[node name="Spikes3" type="Node2D" parent="."]
+position = Vector2(640, 196)
+scale = Vector2(6.0044, 6.0044)
+
+[node name="Spike" parent="Spikes3" instance=ExtResource("6_q610y")]
+position = Vector2(-64.7858, 0)
+
+[node name="Spike2" parent="Spikes3" instance=ExtResource("6_q610y")]
+position = Vector2(-43.3016, 0)
+
+[node name="Spike3" parent="Spikes3" instance=ExtResource("6_q610y")]
+position = Vector2(-21.9839, 0)
+
+[node name="Spike4" parent="Spikes3" instance=ExtResource("6_q610y")]
+
+[node name="Spike5" parent="Spikes3" instance=ExtResource("6_q610y")]
+position = Vector2(21.6508, 0)
+
+[node name="Spike6" parent="Spikes3" instance=ExtResource("6_q610y")]
+position = Vector2(43.135, 0)
+
+[node name="Spike7" parent="Spikes3" instance=ExtResource("6_q610y")]
+position = Vector2(65.1189, 0)
+
+[node name="Spike8" parent="Spikes3" instance=ExtResource("6_q610y")]
+position = Vector2(86.7697, 0)
+
+[node name="Spike9" parent="Spikes3" instance=ExtResource("6_q610y")]
+position = Vector2(108.587, 0)
+
+[node name="Spike10" parent="Spikes3" instance=ExtResource("6_q610y")]
+position = Vector2(130.571, 0)
+
+[node name="Spike11" parent="Spikes3" instance=ExtResource("6_q610y")]
+position = Vector2(152.222, 0)
+
+[node name="Spike12" parent="Spikes3" instance=ExtResource("6_q610y")]
+position = Vector2(43.135, 64.1197)
+
+[node name="Spike13" parent="Spikes3" instance=ExtResource("6_q610y")]
+position = Vector2(65.1189, 64.1197)
+
+[node name="Spike14" parent="Spikes3" instance=ExtResource("6_q610y")]
+position = Vector2(86.7697, 64.1197)
+
+[node name="Spike15" parent="Spikes3" instance=ExtResource("6_q610y")]
+position = Vector2(108.587, 64.1197)
+
+[node name="Spike16" parent="Spikes3" instance=ExtResource("6_q610y")]
+position = Vector2(130.571, 64.1197)
+
+[node name="Spike17" parent="Spikes3" instance=ExtResource("6_q610y")]
+position = Vector2(152.222, 64.1197)
+
+[node name="Spike" parent="." instance=ExtResource("6_q610y")]
+position = Vector2(506, 456)
+scale = Vector2(4.84988, 4.84988)
+
+[node name="Spike2" parent="." instance=ExtResource("6_q610y")]
+position = Vector2(774, 322)
+scale = Vector2(4.84988, 4.84988)
+
+[node name="Spike3" parent="." instance=ExtResource("6_q610y")]
+position = Vector2(1026, 457)
+scale = Vector2(4.84988, 4.84988)
+
+[node name="Spike4" parent="." instance=ExtResource("6_q610y")]
+position = Vector2(1288, 379)
+scale = Vector2(4.84988, 4.84988)

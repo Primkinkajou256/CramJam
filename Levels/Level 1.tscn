@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c4ct3egeu368c"]
+[gd_scene load_steps=15 format=3 uid="uid://c4ct3egeu368c"]
 
 [ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="1_c5g7w"]
 [ext_resource type="PackedScene" uid="uid://cepvk266j6e1" path="res://Objects/Ball.tscn" id="2_in560"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b1ned76appi56" path="res://Art/Alien3.png" id="8_eo4pd"]
 [ext_resource type="PackedScene" uid="uid://bxd7styf5rih4" path="res://Objects/Spike.tscn" id="9_ltx2x"]
 [ext_resource type="Texture2D" uid="uid://bf3ktylukb000" path="res://Art/hole.png" id="10_a5xln"]
+[ext_resource type="PackedScene" path="res://Objects/BoostPad.tscn" id="11_7hy0m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wju3r"]
 size = Vector2(549, 57)
@@ -74,6 +75,63 @@ shape = SubResource("RectangleShape2D_vkhru")
 position = Vector2(445, 126)
 rotation = -0.0932868
 
+[node name="Ball3" parent="." instance=ExtResource("2_in560")]
+position = Vector2(163, 334)
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2(162, 323)
+node_a = NodePath("../Ball3")
+node_b = NodePath("../Rope/RopeSegment10")
+
+[node name="Wall4" type="StaticBody2D" parent="."]
+position = Vector2(141, 93)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4"]
+shape = SubResource("RectangleShape2D_6pkr4")
+
+[node name="PinJoint2D5" type="PinJoint2D" parent="."]
+position = Vector2(141, 103)
+node_a = NodePath("../Rope/RootSegment")
+node_b = NodePath("../Wall4")
+
+[node name="Rope2" parent="." instance=ExtResource("3_mflw2")]
+position = Vector2(141, 103)
+rotation = -0.0932868
+
+[node name="RootSegment" parent="Rope2" index="0" node_paths=PackedStringArray("next_segment")]
+next_segment = NodePath("../../Rope/RopeSegment")
+
+[node name="RopeSegment" parent="Rope2" index="2" node_paths=PackedStringArray("next_segment")]
+next_segment = NodePath("../../Rope/RopeSegment2")
+
+[node name="RopeSegment2" parent="Rope2" index="4" node_paths=PackedStringArray("next_segment")]
+next_segment = NodePath("../../Rope/RopeSegment3")
+
+[node name="RopeSegment3" parent="Rope2" index="6" node_paths=PackedStringArray("next_segment")]
+next_segment = NodePath("../../Rope/RopeSegment4")
+
+[node name="RopeSegment4" parent="Rope2" index="8" node_paths=PackedStringArray("next_segment")]
+next_segment = NodePath("../../Rope/RopeSegment5")
+
+[node name="RopeSegment5" parent="Rope2" index="10" node_paths=PackedStringArray("next_segment")]
+next_segment = NodePath("../../Rope/RopeSegment6")
+
+[node name="RopeSegment6" parent="Rope2" index="12" node_paths=PackedStringArray("next_segment")]
+next_segment = NodePath("../../Rope/RopeSegment7")
+
+[node name="RopeSegment7" parent="Rope2" index="14" node_paths=PackedStringArray("next_segment")]
+next_segment = NodePath("../../Rope/RopeSegment8")
+
+[node name="RopeSegment8" parent="Rope2" index="16" node_paths=PackedStringArray("next_segment")]
+next_segment = NodePath("../../Rope/RopeSegment9")
+
+[node name="RopeSegment9" parent="Rope2" index="18" node_paths=PackedStringArray("next_segment")]
+next_segment = NodePath("../../Rope/RopeSegment10")
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+position = Vector2(144, 124)
+rotation = -0.0932868
+
 [node name="RopeCutter2" parent="." instance=ExtResource("5_fs8hk")]
 position = Vector2(1163, 61)
 
@@ -103,4 +161,9 @@ position = Vector2(442, 438)
 scale = Vector2(0.305354, 0.305354)
 texture = ExtResource("10_a5xln")
 
+[node name="BoostPad" parent="." instance=ExtResource("11_7hy0m")]
+position = Vector2(154, 438)
+
 [editable path="Rope"]
+[editable path="Rope2"]
+[editable path="BoostPad"]

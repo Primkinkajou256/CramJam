@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="1_4j748"]
 [ext_resource type="PackedScene" uid="uid://dpv60rf6eug8r" path="res://Objects/Rope.tscn" id="1_w4y0k"]
-[ext_resource type="PackedScene" path="res://Objects/Ball.tscn" id="2_sekyx"]
+[ext_resource type="PackedScene" uid="uid://cepvk266j6e1" path="res://Objects/Ball.tscn" id="2_sekyx"]
 [ext_resource type="Script" path="res://Scripts/RopeCutter.gd" id="4_yl0hr"]
 [ext_resource type="PackedScene" uid="uid://byxe2fultbulp" path="res://Objects/RopeCutter.tscn" id="5_6ueaa"]
 [ext_resource type="PackedScene" uid="uid://likroypx04ej" path="res://Objects/Rocket.tscn" id="6_5jjgi"]
