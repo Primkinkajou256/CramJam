@@ -4,79 +4,89 @@
 
 [node name="Rope" type="Node2D"]
 
-[node name="RootSegment" parent="." instance=ExtResource("1_vd5ay")]
+[node name="RootSegment" parent="." node_paths=PackedStringArray("next_segment") instance=ExtResource("1_vd5ay")]
+next_segment = NodePath("../RopeSegment")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 position = Vector2(0, 21)
 node_a = NodePath("../RootSegment")
 node_b = NodePath("../RopeSegment")
 
-[node name="RopeSegment" parent="." instance=ExtResource("1_vd5ay")]
+[node name="RopeSegment" parent="." node_paths=PackedStringArray("next_segment") instance=ExtResource("1_vd5ay")]
 position = Vector2(0, 21)
+next_segment = NodePath("../RopeSegment2")
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="."]
 position = Vector2(0, 41)
 node_a = NodePath("../RopeSegment2")
 node_b = NodePath("../RopeSegment")
 
-[node name="RopeSegment2" parent="." instance=ExtResource("1_vd5ay")]
+[node name="RopeSegment2" parent="." node_paths=PackedStringArray("next_segment") instance=ExtResource("1_vd5ay")]
 position = Vector2(0, 41)
+next_segment = NodePath("../RopeSegment3")
 
 [node name="PinJoint2D3" type="PinJoint2D" parent="."]
 position = Vector2(0, 61)
 node_a = NodePath("../RopeSegment2")
 node_b = NodePath("../RopeSegment3")
 
-[node name="RopeSegment3" parent="." instance=ExtResource("1_vd5ay")]
+[node name="RopeSegment3" parent="." node_paths=PackedStringArray("next_segment") instance=ExtResource("1_vd5ay")]
 position = Vector2(0, 61)
+next_segment = NodePath("../RopeSegment4")
 
 [node name="PinJoint2D4" type="PinJoint2D" parent="."]
 position = Vector2(0, 81)
 node_a = NodePath("../RopeSegment4")
 node_b = NodePath("../RopeSegment3")
 
-[node name="RopeSegment4" parent="." instance=ExtResource("1_vd5ay")]
+[node name="RopeSegment4" parent="." node_paths=PackedStringArray("next_segment") instance=ExtResource("1_vd5ay")]
 position = Vector2(0, 81)
+next_segment = NodePath("../RopeSegment5")
 
 [node name="PinJoint2D5" type="PinJoint2D" parent="."]
 position = Vector2(0, 101)
 node_a = NodePath("../RopeSegment4")
 node_b = NodePath("../RopeSegment5")
 
-[node name="RopeSegment5" parent="." instance=ExtResource("1_vd5ay")]
+[node name="RopeSegment5" parent="." node_paths=PackedStringArray("next_segment") instance=ExtResource("1_vd5ay")]
 position = Vector2(0, 101)
+next_segment = NodePath("../RopeSegment6")
 
 [node name="PinJoint2D6" type="PinJoint2D" parent="."]
 position = Vector2(0, 121)
 node_a = NodePath("../RopeSegment5")
 node_b = NodePath("../RopeSegment6")
 
-[node name="RopeSegment6" parent="." instance=ExtResource("1_vd5ay")]
+[node name="RopeSegment6" parent="." node_paths=PackedStringArray("next_segment") instance=ExtResource("1_vd5ay")]
 position = Vector2(0, 121)
+next_segment = NodePath("../RopeSegment7")
 
 [node name="PinJoint2D7" type="PinJoint2D" parent="."]
 position = Vector2(0, 141)
 node_a = NodePath("../RopeSegment6")
 node_b = NodePath("../RopeSegment7")
 
-[node name="RopeSegment7" parent="." instance=ExtResource("1_vd5ay")]
+[node name="RopeSegment7" parent="." node_paths=PackedStringArray("next_segment") instance=ExtResource("1_vd5ay")]
 position = Vector2(0, 141)
+next_segment = NodePath("../RopeSegment8")
 
 [node name="PinJoint2D8" type="PinJoint2D" parent="."]
 position = Vector2(0, 161)
 node_a = NodePath("../RopeSegment7")
 node_b = NodePath("../RopeSegment8")
 
-[node name="RopeSegment8" parent="." instance=ExtResource("1_vd5ay")]
+[node name="RopeSegment8" parent="." node_paths=PackedStringArray("next_segment") instance=ExtResource("1_vd5ay")]
 position = Vector2(0, 161)
+next_segment = NodePath("../RopeSegment9")
 
 [node name="PinJoint2D9" type="PinJoint2D" parent="."]
 position = Vector2(0, 181)
 node_a = NodePath("../RopeSegment8")
 node_b = NodePath("../RopeSegment9")
 
-[node name="RopeSegment9" parent="." instance=ExtResource("1_vd5ay")]
+[node name="RopeSegment9" parent="." node_paths=PackedStringArray("next_segment") instance=ExtResource("1_vd5ay")]
 position = Vector2(0, 181)
+next_segment = NodePath("../RopeSegment10")
 
 [node name="PinJoint2D10" type="PinJoint2D" parent="."]
 position = Vector2(0, 201)

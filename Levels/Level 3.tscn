@@ -35,7 +35,6 @@ node_b = NodePath("../Wall+Rope/Rope/RopeSegment10")
 
 [node name="Ball2" parent="." instance=ExtResource("2_hmyb0")]
 position = Vector2(742, 421)
-mass = 1.0
 
 [node name="Wall3" type="StaticBody2D" parent="."]
 position = Vector2(474, 592)
