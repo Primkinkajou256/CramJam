@@ -9,6 +9,7 @@
 size = Vector2(28, 44)
 
 [node name="RigidBody2D" type="RigidBody2D" node_paths=PackedStringArray("fuel_bar")]
+mass = 10.0
 gravity_scale = 0.0
 script = ExtResource("1_4o8py")
 fuel_bar = NodePath("FuelBar")
