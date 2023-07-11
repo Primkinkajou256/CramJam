@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bk42rlbv843sl"]
+[gd_scene load_steps=6 format=3 uid="uid://bk42rlbv843sl"]
+
+[ext_resource type="Texture2D" uid="uid://dtb5t4c7lrcgb" path="res://Art/REAL ART.png" id="1_0ry1k"]
+[ext_resource type="AudioStream" uid="uid://dadi54dgxo5xo" path="res://Sounds/CBAT Beanos.wav" id="2_fkn7d"]
 
 [sub_resource type="Animation" id="Animation_tsyly"]
 resource_name = "Scroll"
-length = 50.0
+length = 70.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -10,7 +13,7 @@ tracks/0/path = NodePath("Credits Scroll:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 49.9),
+"times": PackedFloat32Array(0, 69.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(569, 653), Vector2(650, -2000)]
@@ -115,3 +118,53 @@ offset_right = 269.0
 offset_bottom = 1342.0
 text = "Witness: Shayne \"Dumbass\" LAST NAME
 \"Where is my stuff :(\""
+
+[node name="TextEdit9" type="Label" parent="Credits Scroll"]
+offset_left = -242.0
+offset_top = 1312.0
+offset_right = 269.0
+offset_bottom = 1468.0
+text = "Stuff Stealer: Beanos
+\"I win :D\""
+
+[node name="TextEdit10" type="Label" parent="Credits Scroll"]
+offset_left = -242.0
+offset_top = 1385.0
+offset_right = 269.0
+offset_bottom = 1541.0
+text = "Victim: Shayne
+\"You guys didn't let me participate\"
+-After saying he wouldn't download Godot or use Github"
+
+[node name="TextEdit11" type="Label" parent="Credits Scroll"]
+offset_left = -242.0
+offset_top = 1503.0
+offset_right = 269.0
+offset_bottom = 1659.0
+text = "Singer: Nathan \"Elvis\" Hipple
+"
+
+[node name="TextEdit12" type="Label" parent="Credits Scroll"]
+offset_left = -242.0
+offset_top = 1949.0
+offset_right = 269.0
+offset_bottom = 2105.0
+text = "Creator of Eyeball Tornado: Nathan"
+
+[node name="TextEdit13" type="Label" parent="Credits Scroll"]
+offset_left = -242.0
+offset_top = 1573.0
+offset_right = 269.0
+offset_bottom = 1729.0
+text = "Peter \"Sea Slut\" Bosslemann: Game Tester
+\"I'm a sea slut\""
+
+[node name="RealArt" type="Sprite2D" parent="Credits Scroll"]
+position = Vector2(-48, 2349)
+texture = ExtResource("1_0ry1k")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(552, 335)
+stream = ExtResource("2_fkn7d")
+volume_db = 6.411
+autoplay = true

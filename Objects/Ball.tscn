@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cepvk266j6e1"]
+[gd_scene load_steps=4 format=3 uid="uid://cepvk266j6e1"]
 
 [ext_resource type="Script" path="res://Scripts/Ball.gd" id="1_o4d06"]
+[ext_resource type="Texture2D" uid="uid://dnd7sctxrhs8k" path="res://Art/HeadMan.png" id="2_ro1jo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m4k5b"]
 
@@ -9,3 +10,22 @@ script = ExtResource("1_o4d06")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_m4k5b")
+
+[node name="HeadMan" type="Sprite2D" parent="."]
+scale = Vector2(0.299987, 0.299987)
+texture = ExtResource("2_ro1jo")
+region_enabled = true
+region_rect = Rect2(21, 12, 68, 69)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 10)
+emitting = false
+direction = Vector2(0, 1)
+spread = 30.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.29
+initial_velocity_max = 57.14
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color = Color(0.415686, 0, 0, 1)
