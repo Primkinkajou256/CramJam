@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcx4wicvnveyg"]
+
+[ext_resource type="Texture2D" uid="uid://c13d25d3ujnye" path="res://Art/BlackBar.png" id="1_f8577"]
+[ext_resource type="Texture2D" uid="uid://cn7w1js2i2x57" path="res://Art/RedBar.png" id="2_8u7he"]
+
+[node name="FuelBar" type="TextureProgressBar"]
+offset_right = 4.0
+offset_bottom = 27.0
+scale = Vector2(1.42551, 1.02443)
+max_value = 1.0
+step = 0.01
+value = 1.0
+fill_mode = 3
+texture_under = ExtResource("1_f8577")
+texture_progress = ExtResource("2_8u7he")

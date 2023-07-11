@@ -1,4 +1,4 @@
-extends Area2D
+extends Node
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,6 +11,5 @@ func _process(delta):
 	pass
 
 
-func _on_body_entered(body):
-	if body is Ball:
-		SceneManager.next_scene()
+func next_scene():
+	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bfy3eeijisotv"]
+[gd_scene load_steps=11 format=3 uid="uid://bfy3eeijisotv"]
 
 [ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="1_4j748"]
 [ext_resource type="PackedScene" uid="uid://dpv60rf6eug8r" path="res://Objects/Rope.tscn" id="1_w4y0k"]
@@ -6,8 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/RopeCutter.gd" id="4_yl0hr"]
 [ext_resource type="PackedScene" uid="uid://byxe2fultbulp" path="res://Objects/RopeCutter.tscn" id="5_6ueaa"]
 [ext_resource type="PackedScene" uid="uid://likroypx04ej" path="res://Objects/Rocket.tscn" id="6_5jjgi"]
-[ext_resource type="Texture2D" uid="uid://c13d25d3ujnye" path="res://Art/BlackBar.png" id="7_m3bf2"]
-[ext_resource type="Texture2D" uid="uid://cn7w1js2i2x57" path="res://Art/RedBar.png" id="8_fkf5h"]
+[ext_resource type="PackedScene" uid="uid://dcx4wicvnveyg" path="res://Objects/FuelBar.tscn" id="7_om2dc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wju3r"]
 size = Vector2(549, 57)
@@ -82,30 +81,27 @@ rotation = 0.321685
 rotation = 0.339955
 
 [node name="RopeCutter" type="Area2D" parent="."]
-position = Vector2(524, 291)
+position = Vector2(999, 55)
 script = ExtResource("4_yl0hr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RopeCutter"]
 shape = SubResource("RectangleShape2D_vkhru")
 
 [node name="RopeCutter2" parent="." instance=ExtResource("5_6ueaa")]
-position = Vector2(688, 297)
+position = Vector2(1163, 61)
 
 [node name="Rocket" parent="." node_paths=PackedStringArray("fuel_bar") instance=ExtResource("6_5jjgi")]
 position = Vector2(246, 368)
 fuel = 3.0
-fuel_bar = NodePath("../FuelBar")
+fuel_bar = NodePath("FuelBar")
 
-[node name="FuelBar" type="TextureProgressBar" parent="."]
-offset_right = 4.0
-offset_bottom = 27.0
-scale = Vector2(1.42551, 1.02443)
-max_value = 1.0
-step = 0.01
-value = 1.0
-fill_mode = 3
-texture_under = ExtResource("7_m3bf2")
-texture_progress = ExtResource("8_fkf5h")
+[node name="FuelBar" parent="Rocket" instance=ExtResource("7_om2dc")]
+offset_left = -16.0
+offset_top = -25.0
+offset_right = 16.0
+offset_bottom = 231.0
+scale = Vector2(0.23713, 0.236941)
+fill_mode = 2
 
 [connection signal="body_entered" from="BallDetector" to="BallDetector" method="_on_body_entered"]
 
