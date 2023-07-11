@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/RopeCutter.gd" id="1_1rx1p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkhru"]
+size = Vector2(41, 17)
 
 [node name="RopeCutter2" type="Area2D"]
 script = ExtResource("1_1rx1p")
