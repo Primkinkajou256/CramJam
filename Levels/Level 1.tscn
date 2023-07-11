@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4ct3egeu368c"]
+[gd_scene load_steps=11 format=3 uid="uid://c4ct3egeu368c"]
 
 [ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="1_c5g7w"]
 [ext_resource type="PackedScene" uid="uid://cepvk266j6e1" path="res://Objects/Ball.tscn" id="2_in560"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/RopeCutter.gd" id="4_qg0s2"]
 [ext_resource type="PackedScene" uid="uid://byxe2fultbulp" path="res://Objects/RopeCutter.tscn" id="5_fs8hk"]
 [ext_resource type="PackedScene" uid="uid://likroypx04ej" path="res://Objects/Rocket.tscn" id="6_44kle"]
+[ext_resource type="Texture2D" uid="uid://c4xdnwrjc6od1" path="res://Art/BeanosBackground.png" id="7_v48rc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wju3r"]
 size = Vector2(549, 57)
@@ -86,6 +87,11 @@ position = Vector2(1163, 61)
 
 [node name="Rocket" parent="." instance=ExtResource("6_44kle")]
 position = Vector2(262, 327)
+
+[node name="BeanosBackground" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(458, 199)
+texture = ExtResource("7_v48rc")
 
 [editable path="Rope"]
 [editable path="Rope2"]
