@@ -8,10 +8,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	for body in get_overlapping_bodies():
+		if body is Ball:
+			print("Victory!")
+			SceneManager.next_scene()
+
+
+
 
 
 func _on_body_entered(body):
-	if body is Ball:
-		print("Victory!")
-		SceneManager.next_scene()
+	pass # Replace with function body.
