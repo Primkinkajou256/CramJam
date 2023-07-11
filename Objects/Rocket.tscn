@@ -1,20 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://likroypx04ej"]
+[gd_scene load_steps=6 format=3 uid="uid://likroypx04ej"]
 
 [ext_resource type="Script" path="res://Scripts/Rocket.gd" id="1_4o8py"]
 [ext_resource type="PackedScene" uid="uid://byxe2fultbulp" path="res://Objects/RopeCutter.tscn" id="2_ayvv8"]
+[ext_resource type="Texture2D" uid="uid://xyjxspw1pb3m" path="res://Art/RocketCharacter.png" id="3_hnxba"]
+[ext_resource type="PackedScene" uid="uid://dcx4wicvnveyg" path="res://Objects/FuelBar.tscn" id="4_alv60"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vd7lq"]
 size = Vector2(28, 44)
 
-[node name="Rocket" type="CharacterBody2D"]
+[node name="Rocket" type="CharacterBody2D" node_paths=PackedStringArray("fuel_bar")]
+rotation = 3.14159
 script = ExtResource("1_4o8py")
+fuel_bar = NodePath("FuelBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.8147e-06, -5.50091)
 shape = SubResource("RectangleShape2D_vd7lq")
 
 [node name="RopeCutter2" parent="." instance=ExtResource("2_ayvv8")]
+position = Vector2(-3.8147e-06, -5.50091)
 
 [node name="CollisionShape2D" parent="RopeCutter2" index="0"]
-position = Vector2(0.5, 24.5)
+position = Vector2(0, 29)
+
+[node name="RocketCharacter" type="Sprite2D" parent="."]
+position = Vector2(-3.8147e-06, 9.49908)
+rotation = 3.14159
+scale = Vector2(0.0935202, 0.0935202)
+texture = ExtResource("3_hnxba")
+
+[node name="FuelBar" parent="." instance=ExtResource("4_alv60")]
+offset_left = 8.0
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 236.0
+scale = Vector2(0.0824831, 0.145884)
+fill_mode = 2
 
 [editable path="RopeCutter2"]
