@@ -19,12 +19,11 @@ size = Vector2(549, 57)
 [node name="Node2D" type="Node2D"]
 
 [node name="BallDetector" type="Area2D" parent="."]
-position = Vector2(452, 396)
+position = Vector2(456, 451)
 scale = Vector2(0.146078, 1.24463)
 script = ExtResource("1_g7wca")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BallDetector"]
-position = Vector2(-1642.96, -282.012)
 shape = SubResource("RectangleShape2D_wju3r")
 
 [node name="Ball2" parent="." instance=ExtResource("2_nu5wx")]
@@ -93,6 +92,7 @@ position = Vector2(262, 327)
 z_index = -4
 position = Vector2(451, 197)
 texture = ExtResource("7_fqm2f")
+metadata/_edit_lock_ = true
 
 [node name="Alien4" type="Sprite2D" parent="."]
 z_index = -1
@@ -100,6 +100,7 @@ position = Vector2(518, 451)
 rotation = -2.30378
 scale = Vector2(0.231663, 0.231663)
 texture = ExtResource("8_8alws")
+metadata/_edit_lock_ = true
 
 [editable path="Rope"]
 [editable path="Rope2"]

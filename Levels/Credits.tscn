@@ -1,12 +1,99 @@
-[gd_scene format=3 uid="uid://bk42rlbv843sl"]
+[gd_scene load_steps=4 format=3 uid="uid://bk42rlbv843sl"]
+
+[sub_resource type="Animation" id="Animation_tsyly"]
+resource_name = "Scroll"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits Scroll:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 29.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(569, 653), Vector2(650, -500)]
+}
+
+[sub_resource type="Animation" id="Animation_p4cbo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits Scroll:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(569, 653)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2wxp8"]
+_data = {
+"RESET": SubResource("Animation_p4cbo"),
+"Scroll": SubResource("Animation_tsyly")
+}
 
 [node name="Credits" type="Node2D"]
 
-[node name="TextEdit" type="Label" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Scroll"
+libraries = {
+"": SubResource("AnimationLibrary_2wxp8")
+}
+
+[node name="Credits Scroll" type="Node2D" parent="."]
+position = Vector2(569, 653)
+
+[node name="TextEdit" type="Label" parent="Credits Scroll"]
+offset_left = -242.0
+offset_right = 269.0
+offset_bottom = 156.0
+text = "Creative Director: Wyatt \"Warren\" Forde
+"
+
+[node name="TextEdit2" type="Label" parent="Credits Scroll"]
+offset_left = -242.0
+offset_top = 165.0
+offset_right = 269.0
+offset_bottom = 321.0
 text = "Art Director: Nathan \"Beanos\" Hipple
-Creative Director: Wyatt \"Warren\" Forde
-Actual Creative Director: Josh Ford
-Assistant Assistant Director: Ralph \"Rizzard\" Robinson aka Triple R
-Sound Designer: Sammy \"Glizzy\" Kronquist"
+\""
+
+[node name="TextEdit3" type="Label" parent="Credits Scroll"]
+offset_left = -242.0
+offset_top = 321.0
+offset_right = 269.0
+offset_bottom = 477.0
+text = "Sound Designer: Sammy \"Glizzy\" Kronquist"
+
+[node name="TextEdit4" type="Label" parent="Credits Scroll"]
+offset_left = -242.0
+offset_top = 477.0
+offset_right = 269.0
+offset_bottom = 633.0
+text = "Assistant Artist: Sammy \"Glizzy\" Kronquistw"
+
+[node name="TextEdit5" type="Label" parent="Credits Scroll"]
+offset_left = -242.0
+offset_top = 633.0
+offset_right = 269.0
+offset_bottom = 789.0
+text = "Actual Creative Director: Josh Ford"
+
+[node name="TextEdit6" type="Label" parent="Credits Scroll"]
+offset_left = -242.0
+offset_top = 789.0
+offset_right = 269.0
+offset_bottom = 945.0
+text = "Assistant Assistant Director: Ralph \"Rizzard\" Robinson aka Triple R"
+
+[node name="TextEdit7" type="Label" parent="Credits Scroll"]
+offset_left = -242.0
+offset_top = 945.0
+offset_right = 269.0
+offset_bottom = 1101.0
+text = "Witness: Shayne \"Dumbass\" LAST NAME"
