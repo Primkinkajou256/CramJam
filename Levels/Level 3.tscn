@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://be5v8l8keen30"]
+[gd_scene load_steps=9 format=3 uid="uid://be5v8l8keen30"]
 
 [ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="1_mn3sd"]
 [ext_resource type="PackedScene" uid="uid://cepvk266j6e1" path="res://Objects/Ball.tscn" id="2_hmyb0"]
 [ext_resource type="PackedScene" uid="uid://dpv60rf6eug8r" path="res://Objects/Rope.tscn" id="3_bobeo"]
-[ext_resource type="Script" path="res://Scripts/RopeCutter.gd" id="4_rl2nq"]
-[ext_resource type="PackedScene" uid="uid://byxe2fultbulp" path="res://Objects/RopeCutter.tscn" id="5_7823a"]
+[ext_resource type="Texture2D" uid="uid://be0qb17o77akd" path="res://icon.svg" id="5_82j41"]
 [ext_resource type="PackedScene" uid="uid://likroypx04ej" path="res://Objects/Rocket.tscn" id="6_es7np"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wju3r"]
@@ -12,80 +11,112 @@ size = Vector2(549, 57)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pkr4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkhru"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mo35f"]
+size = Vector2(425, 20)
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Rocket" parent="." instance=ExtResource("6_es7np")]
+position = Vector2(273, 459)
+
 [node name="BallDetector" type="Area2D" parent="."]
-position = Vector2(452, 396)
+position = Vector2(343, 651)
 scale = Vector2(0.146078, 1.24463)
 script = ExtResource("1_mn3sd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BallDetector"]
-position = Vector2(-1642.96, -282.012)
+position = Vector2(-198.524, -36.1553)
 shape = SubResource("RectangleShape2D_wju3r")
 
-[node name="Ball2" parent="." instance=ExtResource("2_hmyb0")]
-position = Vector2(591, 383)
-
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(587, 373)
+position = Vector2(742, 410)
 node_a = NodePath("../Ball2")
-node_b = NodePath("../Rope/RopeSegment10")
+node_b = NodePath("../Wall+Rope/Rope/RopeSegment10")
 
-[node name="PinJoint2D4" type="PinJoint2D" parent="."]
-position = Vector2(589, 372)
-node_a = NodePath("../Ball2")
-node_b = NodePath("../Rope2/RopeSegment10")
-
-[node name="Wall2" type="StaticBody2D" parent="."]
-position = Vector2(452, 188)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
-shape = SubResource("RectangleShape2D_6pkr4")
+[node name="Ball2" parent="." instance=ExtResource("2_hmyb0")]
+position = Vector2(742, 421)
+mass = 1.0
 
 [node name="Wall3" type="StaticBody2D" parent="."]
-position = Vector2(669, 187)
+position = Vector2(474, 592)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
-position = Vector2(-4, -22)
 shape = SubResource("RectangleShape2D_6pkr4")
 
-[node name="PinJoint2D2" type="PinJoint2D" parent="."]
-position = Vector2(452, 198)
+[node name="Wall+Rope" type="Node2D" parent="."]
+position = Vector2(737, 179)
+
+[node name="Wall2" type="StaticBody2D" parent="Wall+Rope"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall+Rope/Wall2"]
+shape = SubResource("RectangleShape2D_6pkr4")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="Wall+Rope"]
+position = Vector2(0, 10)
 node_a = NodePath("../Rope/RootSegment")
 node_b = NodePath("../Wall2")
 
+[node name="Rope" parent="Wall+Rope" instance=ExtResource("3_bobeo")]
+position = Vector2(0, 10)
+rotation = -0.0238127
+
+[node name="Wall+Rope2" type="Node2D" parent="."]
+position = Vector2(664, 283)
+
+[node name="Wall2" type="StaticBody2D" parent="Wall+Rope2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall+Rope2/Wall2"]
+shape = SubResource("RectangleShape2D_6pkr4")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="Wall+Rope2"]
+position = Vector2(0, 10)
+node_a = NodePath("../Rope/RootSegment")
+node_b = NodePath("../Wall2")
+
+[node name="Rope" parent="Wall+Rope2" instance=ExtResource("3_bobeo")]
+position = Vector2(0, 10)
+
+[node name="Wall+Rope3" type="Node2D" parent="."]
+position = Vector2(468, 193)
+
+[node name="Wall2" type="StaticBody2D" parent="Wall+Rope3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall+Rope3/Wall2"]
+shape = SubResource("RectangleShape2D_6pkr4")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="Wall+Rope3"]
+position = Vector2(0, 10)
+node_a = NodePath("../Rope/RootSegment")
+node_b = NodePath("../Wall2")
+
+[node name="Rope" parent="Wall+Rope3" instance=ExtResource("3_bobeo")]
+position = Vector2(0, 10)
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(468, 425)
+rotation = 0.428823
+node_a = NodePath("../Wall+Rope3/Rope/RopeSegment10")
+node_b = NodePath("../RigidBody2D")
+
 [node name="PinJoint2D3" type="PinJoint2D" parent="."]
-position = Vector2(665, 165)
-node_a = NodePath("../Rope2/RootSegment")
-node_b = NodePath("../Wall3")
+position = Vector2(664, 515)
+rotation = 0.428823
+node_a = NodePath("../Wall+Rope2/Rope/RopeSegment10")
+node_b = NodePath("../RigidBody2D")
 
-[node name="Rope" parent="." instance=ExtResource("3_bobeo")]
-position = Vector2(452, 198)
-rotation = -0.655702
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(556, 478)
+rotation = 0.428823
 
-[node name="Camera2D" type="Camera2D" parent="Rope"]
+[node name="Icon" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(0.5, -5.48363e-06)
+scale = Vector2(3.32031, 0.15625)
+texture = ExtResource("5_82j41")
 
-[node name="Rope2" parent="." instance=ExtResource("3_bobeo")]
-position = Vector2(665, 165)
-rotation = 0.321685
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_mo35f")
 
-[node name="RopeSegment10" parent="Rope2" index="20"]
-rotation = 0.339955
-
-[node name="RopeCutter" type="Area2D" parent="."]
-position = Vector2(999, 55)
-script = ExtResource("4_rl2nq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RopeCutter"]
-shape = SubResource("RectangleShape2D_vkhru")
-
-[node name="RopeCutter2" parent="." instance=ExtResource("5_7823a")]
-position = Vector2(1163, 61)
-
-[node name="Rocket" parent="." instance=ExtResource("6_es7np")]
-position = Vector2(262, 327)
-
-[editable path="Rope"]
-[editable path="Rope2"]
+[editable path="Wall+Rope/Rope"]
+[editable path="Wall+Rope2/Rope"]
+[editable path="Wall+Rope3/Rope"]

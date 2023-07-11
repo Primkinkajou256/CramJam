@@ -57,10 +57,10 @@ scale = Vector2(0.0935202, 0.0935202)
 texture = ExtResource("3_hnxba")
 
 [node name="FuelBar" parent="." instance=ExtResource("4_alv60")]
-offset_left = -7.99995
-offset_top = 20.0
-offset_right = 24.0
-offset_bottom = 276.0
+offset_left = -10.0
+offset_top = -15.0
+offset_right = 22.0
+offset_bottom = 241.0
 scale = Vector2(0.0824831, 0.145884)
 fill_mode = 2
 

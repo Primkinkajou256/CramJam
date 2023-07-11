@@ -1,4 +1,4 @@
-extends RigidBody2D
+class_name Rocket extends RigidBody2D
 
 @export var accel = 1.0
 @export var rotation_speed = 5.0
