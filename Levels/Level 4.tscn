@@ -1,20 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://ctsk38wabxew"]
+[gd_scene load_steps=13 format=3 uid="uid://ctsk38wabxew"]
 
 [ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="1_kqces"]
-[ext_resource type="PackedScene" path="res://Objects/Ball.tscn" id="2_pk61r"]
+[ext_resource type="PackedScene" uid="uid://cepvk266j6e1" path="res://Objects/Ball.tscn" id="2_pk61r"]
 [ext_resource type="PackedScene" uid="uid://dpv60rf6eug8r" path="res://Objects/Rope.tscn" id="3_b1wgp"]
-[ext_resource type="Script" path="res://Scripts/RopeCutter.gd" id="4_s0ry5"]
-[ext_resource type="PackedScene" uid="uid://byxe2fultbulp" path="res://Objects/RopeCutter.tscn" id="5_exlo4"]
+[ext_resource type="Texture2D" uid="uid://bmqfo883vbbw7" path="res://Art/MetalBox.png" id="3_u40a7"]
 [ext_resource type="PackedScene" uid="uid://likroypx04ej" path="res://Objects/Rocket.tscn" id="6_gsaep"]
-[ext_resource type="PackedScene" uid="uid://qpk2080rd8dv" path="res://Objects/BoostPad.tscn" id="7_r0lis"]
+[ext_resource type="PackedScene" path="res://Objects/BoostPad.tscn" id="7_r0lis"]
 [ext_resource type="PackedScene" uid="uid://ciomukj81ayrw" path="res://Objects/RopeSegment.tscn" id="8_ymd5v"]
+[ext_resource type="Texture2D" uid="uid://ro4y22pt20ie" path="res://Art/beanosbackground2.png" id="10_h786a"]
+[ext_resource type="Texture2D" uid="uid://dowt0qh1cje5f" path="res://Art/Alien2.png" id="11_dosm3"]
+[ext_resource type="Texture2D" uid="uid://bf3ktylukb000" path="res://Art/hole.png" id="12_5be12"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wju3r"]
 size = Vector2(64, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pkr4"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkhru"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -45,11 +45,19 @@ position = Vector2(913, 70)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 shape = SubResource("RectangleShape2D_6pkr4")
 
+[node name="MetalBox2" type="Sprite2D" parent="Wall"]
+scale = Vector2(0.0405051, 0.0405051)
+texture = ExtResource("3_u40a7")
+
 [node name="Wall2" type="StaticBody2D" parent="."]
 position = Vector2(452, 188)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
 shape = SubResource("RectangleShape2D_6pkr4")
+
+[node name="MetalBox2" type="Sprite2D" parent="Wall2"]
+scale = Vector2(0.0405051, 0.0405051)
+texture = ExtResource("3_u40a7")
 
 [node name="Wall3" type="StaticBody2D" parent="."]
 position = Vector2(669, 187)
@@ -57,6 +65,11 @@ position = Vector2(669, 187)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
 position = Vector2(-4, -22)
 shape = SubResource("RectangleShape2D_6pkr4")
+
+[node name="MetalBox2" type="Sprite2D" parent="Wall3"]
+position = Vector2(-4, -22)
+scale = Vector2(0.0405051, 0.0405051)
+texture = ExtResource("3_u40a7")
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="."]
 position = Vector2(452, 198)
@@ -73,16 +86,6 @@ position = Vector2(452, 198)
 rotation = -1.40241
 
 [node name="Camera2D" type="Camera2D" parent="Rope"]
-
-[node name="RopeCutter" type="Area2D" parent="."]
-position = Vector2(999, 55)
-script = ExtResource("4_s0ry5")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RopeCutter"]
-shape = SubResource("RectangleShape2D_vkhru")
-
-[node name="RopeCutter2" parent="." instance=ExtResource("5_exlo4")]
-position = Vector2(1163, 61)
 
 [node name="BoostPad" parent="." instance=ExtResource("7_r0lis")]
 position = Vector2(852, 296)
@@ -107,12 +110,28 @@ position = Vector2(0, 21)
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="Rope2"]
 position = Vector2(-0.00134277, 41.1947)
-scale = Vector2(1, 1)
 node_a = NodePath("../RopeSegment2")
 node_b = NodePath("../RopeSegment3")
 
 [node name="RopeSegment3" parent="Rope2" instance=ExtResource("8_ymd5v")]
 position = Vector2(0.564209, 42.4462)
+
+[node name="Beanosbackground2" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(453, 198)
+texture = ExtResource("10_h786a")
+metadata/_edit_lock_ = true
+
+[node name="Alien2" type="Sprite2D" parent="."]
+position = Vector2(863, 250)
+scale = Vector2(0.0804021, 0.0804021)
+texture = ExtResource("11_dosm3")
+metadata/_edit_lock_ = true
+
+[node name="Hole" type="Sprite2D" parent="."]
+position = Vector2(685, 480)
+scale = Vector2(0.243472, 0.243472)
+texture = ExtResource("12_5be12")
 
 [connection signal="body_entered" from="BallDetector" to="BallDetector" method="_on_body_entered"]
 

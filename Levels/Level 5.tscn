@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bnjk6haxmivo5"]
+[gd_scene load_steps=14 format=3 uid="uid://bnjk6haxmivo5"]
 
 [ext_resource type="PackedScene" uid="uid://likroypx04ej" path="res://Objects/Rocket.tscn" id="1_lg77w"]
-[ext_resource type="Script" path="res://Objects/FollowCam.gd" id="1_uy0l7"]
+[ext_resource type="Script" path="res://Scripts/FollowCam.gd" id="1_uy0l7"]
 [ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="2_4aeru"]
 [ext_resource type="PackedScene" uid="uid://cepvk266j6e1" path="res://Objects/Ball.tscn" id="3_brxea"]
 [ext_resource type="PackedScene" uid="uid://dpv60rf6eug8r" path="res://Objects/Rope.tscn" id="4_4l2bt"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bf3ktylukb000" path="res://Art/hole.png" id="6_xo30x"]
 [ext_resource type="Texture2D" uid="uid://ro4y22pt20ie" path="res://Art/beanosbackground2.png" id="7_0nrmd"]
 [ext_resource type="Texture2D" uid="uid://cfeov1imtx2dm" path="res://Art/Crown.png" id="7_tpbx6"]
+[ext_resource type="Texture2D" uid="uid://bmqfo883vbbw7" path="res://Art/MetalBox.png" id="8_3e7dq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wju3r"]
 size = Vector2(549, 57)
@@ -70,6 +71,10 @@ shape = SubResource("RectangleShape2D_6pkr4")
 position = Vector2(0, 10)
 node_a = NodePath("..")
 node_b = NodePath("../../Rope/RootSegment")
+
+[node name="MetalBox2" type="Sprite2D" parent="Wall3"]
+scale = Vector2(0.0405051, 0.0405051)
+texture = ExtResource("8_3e7dq")
 
 [node name="Spikes" type="Node2D" parent="."]
 position = Vector2(640, 580)

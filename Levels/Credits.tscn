@@ -1,7 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://bk42rlbv843sl"]
+[gd_scene load_steps=7 format=3 uid="uid://bk42rlbv843sl"]
 
 [ext_resource type="Texture2D" uid="uid://dtb5t4c7lrcgb" path="res://Art/REAL ART.png" id="1_0ry1k"]
+[ext_resource type="Script" path="res://Scripts/Credits.gd" id="1_tk8q3"]
 [ext_resource type="AudioStream" uid="uid://dadi54dgxo5xo" path="res://Sounds/CBAT Beanos.wav" id="2_fkn7d"]
+
+[sub_resource type="Animation" id="Animation_p4cbo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits Scroll:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(569, 653)]
+}
 
 [sub_resource type="Animation" id="Animation_tsyly"]
 resource_name = "Scroll"
@@ -19,21 +35,6 @@ tracks/0/keys = {
 "values": [Vector2(569, 653), Vector2(650, -2000)]
 }
 
-[sub_resource type="Animation" id="Animation_p4cbo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Credits Scroll:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(569, 653)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2wxp8"]
 _data = {
 "RESET": SubResource("Animation_p4cbo"),
@@ -41,6 +42,7 @@ _data = {
 }
 
 [node name="Credits" type="Node2D"]
+script = ExtResource("1_tk8q3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Scroll"

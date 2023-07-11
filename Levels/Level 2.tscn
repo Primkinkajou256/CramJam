@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bv0642co0tgyu"]
+[gd_scene load_steps=16 format=3 uid="uid://bv0642co0tgyu"]
 
 [ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="1_g7wca"]
 [ext_resource type="PackedScene" uid="uid://cepvk266j6e1" path="res://Objects/Ball.tscn" id="2_nu5wx"]
 [ext_resource type="PackedScene" uid="uid://dpv60rf6eug8r" path="res://Objects/Rope.tscn" id="3_5x7da"]
+[ext_resource type="Texture2D" uid="uid://bmqfo883vbbw7" path="res://Art/MetalBox.png" id="3_f1m7c"]
 [ext_resource type="Script" path="res://Scripts/RopeCutter.gd" id="4_tvggx"]
 [ext_resource type="PackedScene" uid="uid://byxe2fultbulp" path="res://Objects/RopeCutter.tscn" id="5_50b65"]
 [ext_resource type="PackedScene" uid="uid://likroypx04ej" path="res://Objects/Rocket.tscn" id="6_6plt3"]
@@ -48,12 +49,21 @@ position = Vector2(452, 188)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
 shape = SubResource("RectangleShape2D_6pkr4")
 
+[node name="MetalBox2" type="Sprite2D" parent="Wall2"]
+scale = Vector2(0.0405051, 0.0405051)
+texture = ExtResource("3_f1m7c")
+
 [node name="Wall3" type="StaticBody2D" parent="."]
 position = Vector2(669, 187)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
 position = Vector2(-4, -22)
 shape = SubResource("RectangleShape2D_6pkr4")
+
+[node name="MetalBox2" type="Sprite2D" parent="Wall3"]
+position = Vector2(-4, -22)
+scale = Vector2(0.0405051, 0.0405051)
+texture = ExtResource("3_f1m7c")
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="."]
 position = Vector2(452, 198)

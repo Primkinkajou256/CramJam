@@ -1,11 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://be5v8l8keen30"]
+[gd_scene load_steps=14 format=3 uid="uid://be5v8l8keen30"]
 
 [ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="1_mn3sd"]
 [ext_resource type="PackedScene" uid="uid://cepvk266j6e1" path="res://Objects/Ball.tscn" id="2_hmyb0"]
 [ext_resource type="PackedScene" uid="uid://dpv60rf6eug8r" path="res://Objects/Rope.tscn" id="3_bobeo"]
-[ext_resource type="Texture2D" uid="uid://be0qb17o77akd" path="res://icon.svg" id="5_82j41"]
+[ext_resource type="Texture2D" uid="uid://bmqfo883vbbw7" path="res://Art/MetalBox.png" id="4_qb5e1"]
 [ext_resource type="Texture2D" uid="uid://bf3ktylukb000" path="res://Art/hole.png" id="6_d6lc6"]
 [ext_resource type="PackedScene" uid="uid://likroypx04ej" path="res://Objects/Rocket.tscn" id="6_es7np"]
+[ext_resource type="Texture2D" uid="uid://q8awe0uqsc1p" path="res://Art/Platform.png" id="6_qd6kd"]
 [ext_resource type="Texture2D" uid="uid://ro4y22pt20ie" path="res://Art/beanosbackground2.png" id="6_qt0kq"]
 [ext_resource type="Texture2D" uid="uid://obq5bl82pqt8" path="res://Art/Alien1.png" id="7_j0vsu"]
 [ext_resource type="PackedScene" uid="uid://bxd7styf5rih4" path="res://Objects/Spike.tscn" id="9_lrrhe"]
@@ -46,6 +47,10 @@ position = Vector2(474, 592)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
 shape = SubResource("RectangleShape2D_6pkr4")
 
+[node name="MetalBox2" type="Sprite2D" parent="Wall3"]
+scale = Vector2(0.0405051, 0.0405051)
+texture = ExtResource("4_qb5e1")
+
 [node name="Wall+Rope" type="Node2D" parent="."]
 position = Vector2(722, 177)
 
@@ -53,6 +58,10 @@ position = Vector2(722, 177)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall+Rope/Wall2"]
 shape = SubResource("RectangleShape2D_6pkr4")
+
+[node name="MetalBox2" type="Sprite2D" parent="Wall+Rope/Wall2"]
+scale = Vector2(0.0405051, 0.0405051)
+texture = ExtResource("4_qb5e1")
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="Wall+Rope"]
 position = Vector2(0, 10)
@@ -71,6 +80,10 @@ position = Vector2(664, 283)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall+Rope2/Wall2"]
 shape = SubResource("RectangleShape2D_6pkr4")
 
+[node name="MetalBox2" type="Sprite2D" parent="Wall+Rope2/Wall2"]
+scale = Vector2(0.0405051, 0.0405051)
+texture = ExtResource("4_qb5e1")
+
 [node name="PinJoint2D2" type="PinJoint2D" parent="Wall+Rope2"]
 position = Vector2(0, 10)
 node_a = NodePath("../Rope/RootSegment")
@@ -86,6 +99,10 @@ position = Vector2(468, 193)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall+Rope3/Wall2"]
 shape = SubResource("RectangleShape2D_6pkr4")
+
+[node name="MetalBox2" type="Sprite2D" parent="Wall+Rope3/Wall2"]
+scale = Vector2(0.0405051, 0.0405051)
+texture = ExtResource("4_qb5e1")
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="Wall+Rope3"]
 position = Vector2(0, 10)
@@ -111,10 +128,11 @@ node_b = NodePath("../RigidBody2D")
 position = Vector2(556, 478)
 rotation = 0.428823
 
-[node name="Icon" type="Sprite2D" parent="RigidBody2D"]
-position = Vector2(0.5, -5.48363e-06)
-scale = Vector2(3.32031, 0.15625)
-texture = ExtResource("5_82j41")
+[node name="Platform" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(1.22449, 67.6129)
+rotation = 0.002365
+scale = Vector2(0.694893, 0.306153)
+texture = ExtResource("6_qd6kd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(0.5, 0)

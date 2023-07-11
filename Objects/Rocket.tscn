@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://likroypx04ej"]
+[gd_scene load_steps=21 format=3 uid="uid://likroypx04ej"]
 
 [ext_resource type="Script" path="res://Scripts/Rocket.gd" id="1_4o8py"]
 [ext_resource type="PackedScene" uid="uid://byxe2fultbulp" path="res://Objects/RopeCutter.tscn" id="2_ayvv8"]
@@ -11,6 +11,9 @@
 [ext_resource type="AudioStream" uid="uid://6f71ej1jeevu" path="res://Sounds/Rope5.mp3" id="9_l0lt5"]
 [ext_resource type="AudioStream" uid="uid://bkhovn05o18ih" path="res://Sounds/Rope6.mp3" id="10_klra3"]
 [ext_resource type="AudioStream" uid="uid://wtnmei4tn5b1" path="res://Sounds/Rope7.mp3" id="11_0fblt"]
+[ext_resource type="AudioStream" uid="uid://et6gjni68230" path="res://Sounds/Ship.mp3" id="12_kco4y"]
+[ext_resource type="AudioStream" uid="uid://c0pxx7xejv7iv" path="res://Sounds/boom.mp3" id="13_4cc1n"]
+[ext_resource type="Texture2D" uid="uid://del5so8qybvkq" path="res://Art/Explode.png" id="13_waqun"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vd7lq"]
 size = Vector2(28, 44)
@@ -32,11 +35,250 @@ stream_5/weight = 1.0
 stream_6/stream = ExtResource("11_0fblt")
 stream_6/weight = 1.0
 
-[node name="RigidBody2D" type="RigidBody2D" node_paths=PackedStringArray("fuel_bar")]
+[sub_resource type="Gradient" id="Gradient_v1nk7"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="Animation" id="Animation_6swyu"]
+resource_name = "kill"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reset_level"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RocketCharacter:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Explode:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.3, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Explode:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.3, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Explode:modulate:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.3, 0.8)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Explode:modulate:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.3, 0.8)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Explode:modulate:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.4, 0.8)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Explode:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.8)
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("FuelBar:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("RopeCutter2/CollisionShape2D:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_kmroe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RocketCharacter:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Explode:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Explode:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Explode:modulate:r")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Explode:modulate:g")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Explode:modulate:b")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Explode:modulate:a")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("FuelBar:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("RopeCutter2/CollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m1v0a"]
+_data = {
+"RESET": SubResource("Animation_kmroe"),
+"kill": SubResource("Animation_6swyu")
+}
+
+[node name="RigidBody2D" type="RigidBody2D" node_paths=PackedStringArray("fuel_bar", "particles", "RToRestartText", "sound", "explode_sound", "anim")]
 mass = 10.0
 gravity_scale = 0.0
 script = ExtResource("1_4o8py")
+accel = 5.0
 fuel_bar = NodePath("FuelBar")
+particles = NodePath("CPUParticles2D")
+RToRestartText = NodePath("Label")
+sound = NodePath("Rocket Sound")
+explode_sound = NodePath("Explosion Sound")
+anim = NodePath("anim")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.77605e-05, 5.50091)
@@ -46,7 +288,7 @@ shape = SubResource("RectangleShape2D_vd7lq")
 [node name="RopeCutter2" parent="." node_paths=PackedStringArray("sound") instance=ExtResource("2_ayvv8")]
 position = Vector2(1.77605e-05, 5.50091)
 rotation = 3.14159
-sound = NodePath("../AudioStreamPlayer2D")
+sound = NodePath("../Snip Sound")
 
 [node name="CollisionShape2D" parent="RopeCutter2" index="0"]
 position = Vector2(0, 29)
@@ -64,7 +306,53 @@ offset_bottom = 241.0
 scale = Vector2(0.0824831, 0.145884)
 fill_mode = 2
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Snip Sound" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_c1gfh")
+volume_db = -3.0
+
+[node name="Rocket Sound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("12_kco4y")
+pitch_scale = 0.75
+autoplay = true
+
+[node name="Explosion Sound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_4cc1n")
+pitch_scale = 0.75
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, 35)
+emitting = false
+amount = 20
+direction = Vector2(0, 500)
+spread = 34.71
+gravity = Vector2(0, 0)
+initial_velocity_min = 35.71
+initial_velocity_max = 35.71
+linear_accel_min = -32.86
+linear_accel_max = -27.14
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_v1nk7")
+hue_variation_max = 1.0
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -46.0
+offset_top = 52.0
+offset_right = 62.0
+offset_bottom = 78.0
+rotation = -1.57079
+text = "R To Restart :)"
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m1v0a")
+}
+
+[node name="Explode" type="Sprite2D" parent="."]
+position = Vector2(7.15256e-07, 4)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("13_waqun")
 
 [editable path="RopeCutter2"]

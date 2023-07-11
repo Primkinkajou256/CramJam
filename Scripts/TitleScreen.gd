@@ -12,6 +12,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("Forward") && !game_started:
 		%"Start Game Anim".play("Start")
 		game_started = true
+		SceneManager.start_timer()
 
 
 func start_game():

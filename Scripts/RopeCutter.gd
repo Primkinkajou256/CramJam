@@ -13,7 +13,6 @@ func _process(delta):
 		if body is RopeSegment:
 			var next_body = body
 			while next_body.next_segment != null:
-				print(next_body.next_segment)
 				var temp_body = next_body.next_segment
 				next_body.queue_free()
 				next_body = temp_body

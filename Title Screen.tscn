@@ -22,6 +22,31 @@
 [ext_resource type="AudioStream" uid="uid://bkhovn05o18ih" path="res://Sounds/Rope6.mp3" id="16_fsfcm"]
 [ext_resource type="AudioStream" uid="uid://wtnmei4tn5b1" path="res://Sounds/Rope7.mp3" id="17_hu0hp"]
 
+[sub_resource type="Animation" id="Animation_y0xyt"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../RocketCharacter:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(189, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../RocketCharacter:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(118, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_002h2"]
 resource_name = "Start"
 length = 2.0
@@ -60,31 +85,6 @@ tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(118, -0.25, 0, 0.25, 0, 118, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
-}
-
-[sub_resource type="Animation" id="Animation_y0xyt"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../RocketCharacter:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(175, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../RocketCharacter:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(119, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_65w7b"]
@@ -247,7 +247,7 @@ texture = ExtResource("7_nppsw")
 metadata/_edit_lock_ = true
 
 [node name="RocketCharacter" type="Sprite2D" parent="."]
-position = Vector2(175, 119)
+position = Vector2(189, 118)
 rotation = 1.5708
 scale = Vector2(0.147971, 0.147971)
 texture = ExtResource("9_0sxn3")

@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://c4ct3egeu368c"]
+[gd_scene load_steps=12 format=3 uid="uid://c4ct3egeu368c"]
 
 [ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="1_c5g7w"]
 [ext_resource type="PackedScene" uid="uid://cepvk266j6e1" path="res://Objects/Ball.tscn" id="2_in560"]
+[ext_resource type="Texture2D" uid="uid://bmqfo883vbbw7" path="res://Art/MetalBox.png" id="3_33c2e"]
 [ext_resource type="PackedScene" uid="uid://dpv60rf6eug8r" path="res://Objects/Rope.tscn" id="3_mflw2"]
-[ext_resource type="Script" path="res://Scripts/RopeCutter.gd" id="4_qg0s2"]
-[ext_resource type="PackedScene" uid="uid://byxe2fultbulp" path="res://Objects/RopeCutter.tscn" id="5_fs8hk"]
 [ext_resource type="PackedScene" uid="uid://likroypx04ej" path="res://Objects/Rocket.tscn" id="6_44kle"]
 [ext_resource type="Texture2D" uid="uid://ro4y22pt20ie" path="res://Art/beanosbackground2.png" id="7_de20f"]
 [ext_resource type="Texture2D" uid="uid://b1ned76appi56" path="res://Art/Alien3.png" id="8_eo4pd"]
@@ -15,8 +14,6 @@
 size = Vector2(549, 57)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pkr4"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkhru"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -47,12 +44,9 @@ position = Vector2(442, 95)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
 shape = SubResource("RectangleShape2D_6pkr4")
 
-[node name="Wall3" type="StaticBody2D" parent="."]
-position = Vector2(669, 187)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
-position = Vector2(-4, -22)
-shape = SubResource("RectangleShape2D_6pkr4")
+[node name="MetalBox2" type="Sprite2D" parent="Wall2"]
+scale = Vector2(0.0405051, 0.0405051)
+texture = ExtResource("3_33c2e")
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="."]
 position = Vector2(442, 105)
@@ -63,19 +57,9 @@ node_b = NodePath("../Wall2")
 position = Vector2(442, 105)
 rotation = -0.0932868
 
-[node name="RopeCutter" type="Area2D" parent="."]
-position = Vector2(999, 55)
-script = ExtResource("4_qg0s2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RopeCutter"]
-shape = SubResource("RectangleShape2D_vkhru")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(458, 200)
 rotation = -0.0932868
-
-[node name="RopeCutter2" parent="." instance=ExtResource("5_fs8hk")]
-position = Vector2(1163, 61)
 
 [node name="Rocket" parent="." instance=ExtResource("6_44kle")]
 position = Vector2(262, 327)
