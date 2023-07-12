@@ -352,7 +352,6 @@ texture = ExtResource("11_a36vr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block Needed for W"]
 position = Vector2(-3.50006, 17.0002)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_eeseg")
 
 [node name="PinJoint2D4" type="PinJoint2D" parent="."]

@@ -268,7 +268,6 @@ texture = ExtResource("9_rnysm")
 [node name="SadRope" type="Sprite2D" parent="Credits Scroll"]
 position = Vector2(-377, 573.099)
 rotation = -0.273985
-scale = Vector2(1, 1)
 texture = ExtResource("10_al054")
 
 [node name="Hole" type="Sprite2D" parent="Credits Scroll"]

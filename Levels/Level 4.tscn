@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctsk38wabxew"]
+[gd_scene load_steps=14 format=3 uid="uid://ctsk38wabxew"]
 
 [ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="1_kqces"]
 [ext_resource type="PackedScene" uid="uid://cepvk266j6e1" path="res://Objects/Ball.tscn" id="2_pk61r"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" path="res://Objects/BoostPad.tscn" id="7_r0lis"]
 [ext_resource type="PackedScene" uid="uid://ciomukj81ayrw" path="res://Objects/RopeSegment.tscn" id="8_ymd5v"]
 [ext_resource type="Texture2D" uid="uid://ro4y22pt20ie" path="res://Art/beanosbackground2.png" id="10_h786a"]
+[ext_resource type="PackedScene" uid="uid://bxd7styf5rih4" path="res://Objects/Spike.tscn" id="11_4ewf7"]
 [ext_resource type="Texture2D" uid="uid://dowt0qh1cje5f" path="res://Art/Alien2.png" id="11_dosm3"]
 [ext_resource type="Texture2D" uid="uid://bf3ktylukb000" path="res://Art/hole.png" id="12_5be12"]
 
@@ -132,6 +133,24 @@ metadata/_edit_lock_ = true
 position = Vector2(685, 480)
 scale = Vector2(0.243472, 0.243472)
 texture = ExtResource("12_5be12")
+
+[node name="Spike7" parent="." instance=ExtResource("11_4ewf7")]
+position = Vector2(-383, 258)
+scale = Vector2(4.68559, 73.6456)
+
+[node name="Spike8" parent="." instance=ExtResource("11_4ewf7")]
+position = Vector2(442, -376)
+scale = Vector2(86.2856, 4.68559)
+
+[node name="Spike9" parent="." instance=ExtResource("11_4ewf7")]
+position = Vector2(1318, 195)
+rotation = -1.5708
+scale = Vector2(86.2856, 4.68559)
+
+[node name="Spike10" parent="." instance=ExtResource("11_4ewf7")]
+position = Vector2(477, 731)
+rotation = -3.14159
+scale = Vector2(86.2856, 4.68559)
 
 [connection signal="body_entered" from="BallDetector" to="BallDetector" method="_on_body_entered"]
 

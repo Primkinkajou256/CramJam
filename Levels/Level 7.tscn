@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvsap7f1t8jh7"]
+[gd_scene load_steps=11 format=3 uid="uid://dvsap7f1t8jh7"]
 
 [ext_resource type="Script" path="res://Scripts/BallDetector.gd" id="1_b5vx4"]
 [ext_resource type="PackedScene" uid="uid://cepvk266j6e1" path="res://Objects/Ball.tscn" id="2_sxonw"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dpv60rf6eug8r" path="res://Objects/Rope.tscn" id="5_t87vc"]
 [ext_resource type="Texture2D" uid="uid://bf3ktylukb000" path="res://Art/hole.png" id="6_ki6h8"]
 [ext_resource type="Texture2D" uid="uid://ro4y22pt20ie" path="res://Art/beanosbackground2.png" id="7_krbiw"]
+[ext_resource type="PackedScene" uid="uid://bxd7styf5rih4" path="res://Objects/Spike.tscn" id="8_lt8ns"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wju3r"]
 size = Vector2(59, 57)
@@ -134,6 +135,24 @@ texture = ExtResource("6_ki6h8")
 z_index = -2
 position = Vector2(777, 329)
 texture = ExtResource("7_krbiw")
+
+[node name="Spike7" parent="." instance=ExtResource("8_lt8ns")]
+position = Vector2(-59, 406)
+scale = Vector2(4.68559, 73.6456)
+
+[node name="Spike8" parent="." instance=ExtResource("8_lt8ns")]
+position = Vector2(766, -228)
+scale = Vector2(86.2856, 4.68559)
+
+[node name="Spike9" parent="." instance=ExtResource("8_lt8ns")]
+position = Vector2(1642, 343)
+rotation = -1.5708
+scale = Vector2(86.2856, 4.68559)
+
+[node name="Spike10" parent="." instance=ExtResource("8_lt8ns")]
+position = Vector2(801, 879)
+rotation = -3.14159
+scale = Vector2(86.2856, 4.68559)
 
 [connection signal="body_entered" from="BallDetector" to="BallDetector" method="_on_body_entered"]
 

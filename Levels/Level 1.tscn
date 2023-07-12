@@ -114,6 +114,8 @@ offset_left = 198.0
 offset_top = 200.0
 offset_right = 333.0
 offset_bottom = 226.0
-text = "A and W to turn!!!"
+text = "A and D to turn!!!
+(Or use the arrows)"
+horizontal_alignment = 1
 
 [editable path="Rope"]
